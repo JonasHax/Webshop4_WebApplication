@@ -45,8 +45,7 @@
                 <td>
                     @Html.ActionLink("Se produkt", "Details", new { id = item.StyleNumber }) @*|*@
                     @*@Html.ActionLink("Tilføj Til Kurv", "AddToCart", new { id = item.StyleNumber })*@
-                    <button type="button" class="btn btn-primary">Se mere</button>
-                    @Html.ActionLink("Se produkt", "Details", new { @class = "btn btn-primary btn-large" })
+                    @*<button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Details", "Product")'">Se mere</button>*@
                 </td>
             </tr>
         }
