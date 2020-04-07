@@ -1,0 +1,23 @@
+﻿body {
+    background: linear-gradient(to right, #7BF2E9, #B65EBA);
+    min-height: 100vh
+}
+
+.text-gray {
+    color: #aaa
+}
+
+img {
+    height: 170px;
+    width: 140px
+}
+
+.title_yo {
+    color: white;
+    align-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sub_title_productList {
+    color: white;
+}
