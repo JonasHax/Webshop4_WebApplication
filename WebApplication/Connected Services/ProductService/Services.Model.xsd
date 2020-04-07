@@ -26,4 +26,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductVersion" nillable="true" type="tns:ProductVersion" />
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct" />
 </xs:schema>
