@@ -240,6 +240,12 @@ namespace WebApplication.ProductService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetProduct", ReplyAction="http://tempuri.org/IProductService/GetProductResponse")]
         System.Threading.Tasks.Task<WebApplication.ProductService.Product> GetProductAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetANumber", ReplyAction="http://tempuri.org/IProductService/GetANumberResponse")]
+        int GetANumber(int number);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetANumber", ReplyAction="http://tempuri.org/IProductService/GetANumberResponse")]
+        System.Threading.Tasks.Task<int> GetANumberAsync(int number);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -275,6 +281,14 @@ namespace WebApplication.ProductService {
         
         public System.Threading.Tasks.Task<WebApplication.ProductService.Product> GetProductAsync(int id) {
             return base.Channel.GetProductAsync(id);
+        }
+        
+        public int GetANumber(int number) {
+            return base.Channel.GetANumber(number);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetANumberAsync(int number) {
+            return base.Channel.GetANumberAsync(number);
         }
     }
 }
