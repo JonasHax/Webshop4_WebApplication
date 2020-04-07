@@ -201,7 +201,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Cart\View.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
