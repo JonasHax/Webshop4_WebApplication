@@ -10,5 +10,7 @@ namespace WebApplication.Utilities {
     public interface IModelConvert {
 
         CompanyProduct ConvertFromServiceProduct(ProductService.Product productToConvert);
+
+        List<CompanyProduct> ConvertFromServiceProductAllProducts(List<ProductService.Product> listToConvert);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebApplication.Models;
+using WebApplication.ProductService;
 
 namespace WebApplication.Utilities {
 
@@ -32,6 +33,17 @@ namespace WebApplication.Utilities {
                 }
             }
             return convertedProduct;
+        }
+
+        public List<CompanyProduct> ConvertFromServiceProductAllProducts(List<Product> listToConvert) {
+            List<CompanyProduct> convertedList = new List<CompanyProduct>();
+
+            foreach (ProductService.Product product in listToConvert) {
+                CompanyProduct convertedProd = ConvertFromServiceProduct(product);
+                convertedList.Add(convertedProd);
+            }
+
+            return convertedList;
         }
     }
 }

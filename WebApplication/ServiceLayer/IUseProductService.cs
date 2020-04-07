@@ -10,5 +10,7 @@ namespace WebApplication.ServiceLayer {
     public interface IUseProductService {
 
         CompanyProduct GetProductById(int id);
+
+        List<CompanyProduct> GetAllProducts();
     }
 }

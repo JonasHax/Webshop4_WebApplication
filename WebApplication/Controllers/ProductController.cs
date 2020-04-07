@@ -16,5 +16,14 @@ namespace WebApplication.Controllers {
             CompanyProduct model = service.GetProductById(3);
             return View(model);
         }
+
+        public ActionResult List() {
+            ServiceProduct service = new ServiceProduct();
+            List<CompanyProduct> model = service.GetAllProducts();
+            return View(model);
+        }
+
+        public ActionResult Details() {
+        }
     }
 }

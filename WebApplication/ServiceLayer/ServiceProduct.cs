@@ -8,9 +8,17 @@ using WebApplication.Utilities;
 
 namespace WebApplication.ServiceLayer {
 
-    public class ServiceProduct {
+    public class ServiceProduct : IUseProductService {
 
         public ServiceProduct() {
+        }
+
+        public List<CompanyProduct> GetAllProducts() {
+            ProductServiceClient proxy = new ProductServiceClient();
+            ConvertDataModel converter = new ConvertDataModel();
+
+            List<CompanyProduct> productList = converter.ConvertFromServiceProductAllProducts(proxy.GetAllProducts().ToList());
+            return productList;
         }
 
         public CompanyProduct GetProductById(int id) {
