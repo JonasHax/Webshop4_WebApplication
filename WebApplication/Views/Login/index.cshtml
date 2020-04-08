@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+
+<!doctype html>
+<html>
+<head>
+
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+</head>
+<body>
+    <div class="content" id="Main-Content">
+
+        <div class="w3ls-slider">
+            <div class="hub-slider">
+                <div class="hub-slider-slides">
+                    <ul>
+                        <li>
+                            <div class="login-form login-form-left">
+                                <div class="agile-row">
+                                    <h2>Login</h2>
+                                    <div class="login-agileits-top">
+                                        @using (Html.BeginForm("loginform", "login", FormMethod.Post))
+                                        {
+                                            <p>Email</p>
+                                            <input type="email" class="email" name="email" placeholder="Email" required="" />
+                                            <p>Password</p>
+                                            <input type="password" class="password" name="Password" placeholder="Password" required="" />
+                                            <input type="submit" value="Sign In">
+                                        }
+                                    </div>
+                                    <div class="login-agileits-bottom">
+                                        <h6><a href="#">Forgot password?</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
