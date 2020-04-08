@@ -128,6 +128,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -136,6 +137,7 @@
     </Compile>
     <Compile Include="Models\CompanyProduct.cs" />
     <Compile Include="Models\CompanyProductVersion.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLayer\IUseProductService.cs" />
     <Compile Include="ServiceLayer\ServiceProduct.cs" />
@@ -205,6 +207,7 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Login\index.cshtml" />
     <Content Include="Views\Login\LoginSuccess.cshtml" />
+    <Content Include="Views\Customer\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
