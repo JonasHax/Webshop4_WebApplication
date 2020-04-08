@@ -25,5 +25,47 @@ namespace WebApplication.Models {
         public override string ToString() {
             return $"Varenummer: {StyleNumber} \nNavn: {Name}\nPris: {Price},-\nBeskrivelse: {Description}\nTilgængelig: {State}"; /*\nLager: {Stock} \nStr.: {SizeCode} \nFarve: {ColorCode}*/
         }
+
+        public List<string> GetAvailableColors() {
+            List<string> colors = new List<string>();
+
+            foreach (CompanyProductVersion item in ProductVersions) {
+                string color = item.ColorCode;
+                if (!colors.Contains(color)) {
+                    colors.Add(color);
+                }
+            }
+
+            return colors;
+        }
+
+        public List<string> GetSizesAvailableInSpecificColor(string color) {
+            List<string> sizes = new List<string>();
+            //string[] ordering = { "xs", "s", "m", "l", "xl", "xxl" };
+
+            foreach (CompanyProductVersion item in ProductVersions) {
+                if (item.ColorCode.Equals(color)) {
+                    string size = item.SizeCode;
+                    if (!sizes.Contains(size)) {
+                        sizes.Add(size.ToUpper());
+                    }
+                }
+            }
+            //sizes.OrderBy();
+
+            return sizes;
+        }
+
+        public CompanyProductVersion GetProductVersion(string sizeCode, string colorCode) {
+            CompanyProductVersion prodVer = null;
+
+            foreach (CompanyProductVersion item in ProductVersions) {
+                if (item.SizeCode.Equals(sizeCode) && item.ColorCode.Equals(colorCode)) {
+                    prodVer = item;
+                }
+            }
+
+            return prodVer;
+        }
     }
 }
