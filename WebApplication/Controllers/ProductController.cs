@@ -23,7 +23,15 @@ namespace WebApplication.Controllers {
             return View(model);
         }
 
-        public ActionResult Details() {
+        public ActionResult Details(int? id) {
+            if (id != null && id > -1) {
+                ServiceProduct service = new ServiceProduct();
+                CompanyProduct product = service.GetProductById((int)id);
+                return View(product);
+            } else {
+                RedirectToAction("List");
+            }
+            return View(); // hvorfor skal den være der??
         }
     }
 }
