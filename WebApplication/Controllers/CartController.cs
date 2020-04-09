@@ -13,21 +13,30 @@ namespace WebApplication.Controllers {
 
         // GET: Cart
         public ActionResult Index() {
-            return RedirectToAction("Add");
+            return View((List<CompanyProductVersion>)Session["ShoppingCart"]);
         }
 
         [HttpPost]
-        public ActionResult Add(CompanyProductVersion prodVer) {
+        public ActionResult Add(CompanyProduct product, FormCollection form) {
             if (Session["ShoppingCart"] == null) {
                 ShoppingCart = new List<CompanyProductVersion>();
+                Session["ShoppingCart"] = ShoppingCart;
             }
 
-            //ServiceProduct service = new ServiceProduct();
-            //prodVer.Product = service.GetProductById(3);
-            //var products = (List<CompanyProductVersion>)Session["ShoppingCart"];
-            //products.Add(prodVer);
+            // add productversions to product
+            ServiceProduct service = new ServiceProduct();
+            product = service.GetProductById(product.StyleNumber);
 
-            ShoppingCart.Add(prodVer);
+            var selectedColor = form.Get("colors");
+            var selectedSize = form.Get("sizes");
+
+            CompanyProductVersion prodVer = product.GetProductVersion(selectedSize, selectedColor);
+
+            if (prodVer != null) {
+                ShoppingCart.Add(prodVer);
+            } else {
+                return RedirectToAction("List", "Product");
+            }
 
             Session["ShoppingCart"] = ShoppingCart;
 

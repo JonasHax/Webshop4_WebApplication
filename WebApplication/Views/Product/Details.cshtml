@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-@using (Html.BeginForm("Validate", "Product", new { id = Model.StyleNumber }, FormMethod.Post)) {
+@using (Html.BeginForm("Add", "Cart", Model)) {
     <div>
         <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">@Model.Name</h1>
@@ -91,7 +91,7 @@
     </div>
 }
 
-<script>
+@*<script>
     function validateAllOk() {
         var selectedColor = document.getElementById("colors").value;
         var selectedSize = document.getElementById("sizes").value;
@@ -104,19 +104,19 @@
             alert("Vælg en størrelse");
         } else {
             alert("Vælg farve og størrelse");
-        }
-
-        // tjek om den valgte combination eksisterer i systemet
-        @*@{
-            CompanyProductVersion product = Model.GetProductVersion(selectedColor, selectedSize);
-            if (product != null) {
-                // gør noget
-            }
         }*@
 
-        //alert(selectedColor + " - " + selectedSize);
-    }
-</script>
+@*// tjek om den valgte combination eksisterer i systemet*@
+@*@{
+        CompanyProductVersion product = Model.GetProductVersion(selectedColor, selectedSize);
+        if (product != null) {
+            // gør noget
+        }
+    }*@
+
+@*//alert(selectedColor + " - " + selectedSize);*@
+@*}
+    </script>*@
 
 @*<script>
         function ChangeSizes(value) {
