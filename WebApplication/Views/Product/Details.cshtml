@@ -4,116 +4,119 @@
     ViewBag.Title = "Details";
 }
 
-<div>
-    <div class="jumbotron jumbotron-fluid">
-        <h1 class="display-4">@Model.Name</h1>
-        <p class="lead">Få mere information omkring produktet og vælg farver og størrelser nedenfor!</p>
-    </div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Varenummer:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StyleNumber)
-        </dd>
-
-        <dt>
-            Produkt:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            Beskrivelse:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            Pris:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price),-
-        </dd>
-
-        <dt>
-            Tilgængelige farver:
-        </dt>
-
-        <dd>
-            <select id="colors" @*onchange="ChangeSizes(this.value)*@>
-                <option value="default">Vælg en farve</option>
-                @foreach (var item in Model.GetAvailableColors()) {
-                    <option value="@item">@item</option>
-                }
-            </select>
-        </dd>
-
-        <dt>
-            Størrelser:
-        </dt>
-
-        <dd>
-            <select id="sizes">
-                <option value="default">Vælg en størrelse</option>
-                <option value="xs">xs</option>
-                <option value="s">s</option>
-                <option value="m">m</option>
-                <option value="l">l</option>
-                <option value="xl">xl</option>
-                <option value="xxl">xxl</option>
-            </select>
-        </dd>
-    </dl>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-2">
-            @*@using (Html.BeginForm("List", "Product")) {
-                    <button type="submit" class="btn btn-primary">Tilføj til kurv</button>
-                }*@
-            <button type="submit" class="btn btn-primary" onclick="validateAllOk()">Tilføj til kurv</button>
+@using (Html.BeginForm("Add", "Cart", Model)) {
+    <div>
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-4">@Model.Name</h1>
+            <p class="lead">Få mere information omkring produktet og vælg farver og størrelser nedenfor!</p>
         </div>
-        <div class="col-sm-2">
-            @using (Html.BeginForm("List", "Product")) {
-                <button type="submit" class="btn btn-secondary">Tilbage til produkter</button>
-            }
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Varenummer:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StyleNumber)
+            </dd>
+
+            <dt>
+                Produkt:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                Beskrivelse:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                Pris:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price),-
+            </dd>
+
+            <dt>
+                Tilgængelige farver:
+            </dt>
+            @*@using (Html.BeginForm("Validate", "Product", FormMethod.Post)) {*@
+            <dd>
+
+                <select id="colors" name="colors">
+                    <option value="default">Vælg en farve</option>
+                    @foreach (var item in Model.GetAvailableColors()) {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+            </dd>
+
+            <dt>
+                Størrelser:
+            </dt>
+
+            <dd>
+                <select id="sizes" name="sizes">
+                    <option value="default">Vælg en størrelse</option>
+                    <option value="xs">xs</option>
+                    <option value="s">s</option>
+                    <option value="m">m</option>
+                    <option value="l">l</option>
+                    <option value="xl">xl</option>
+                    <option value="xxl">xxl</option>
+                </select>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary">Tilføj til kurv</button>
+                @*<button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Validate", "Product")'">Tilføj til kurv</button>*@
+                @*<button type="submit" class="btn btn-primary" onclick="validateAllOk()">Tilføj til kurv</button>*@
+            </div>
+
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-secondary" onclick="location.href='@Url.Action("List", "Product")'">Tilbage til produkter</button>
+            </div>
         </div>
     </div>
-</div>
-<script>
+}
+
+@*<script>
     function validateAllOk() {
         var selectedColor = document.getElementById("colors").value;
         var selectedSize = document.getElementById("sizes").value;
         if (selectedColor != "default" && selectedSize != "default") {
             alert("Farve: " + selectedColor + "\nStr: " + selectedSize);
+            //@Url.Action("Validate", "Product", new { product = Model, color = "blue", size = "l"});
         } else if (selectedColor == "default" && selectedSize != "default") {
             alert("Vælg en farve");
         } else if (selectedColor != "default" && selectedSize == "default") {
             alert("Vælg en størrelse");
         } else {
             alert("Vælg farve og størrelse");
-        }
-
-        // tjek om den valgte combination eksisterer i systemet
-        @*@{
-            CompanyProductVersion product = Model.GetProductVersion(selectedColor, selectedSize);
-            if (product != null) {
-                // gør noget
-            }
         }*@
 
-        //alert(selectedColor + " - " + selectedSize);
-    }
-</script>
+@*// tjek om den valgte combination eksisterer i systemet*@
+@*@{
+        CompanyProductVersion product = Model.GetProductVersion(selectedColor, selectedSize);
+        if (product != null) {
+            // gør noget
+        }
+    }*@
+
+@*//alert(selectedColor + " - " + selectedSize);*@
+@*}
+    </script>*@
 
 @*<script>
         function ChangeSizes(value) {

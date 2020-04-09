@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WebApplication.Models.CompanyProductVersion>
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Din indkøbskurv</h2>
+
+@if (Model != null) {
+    <table class="table">
+        <tr>
+            <th>
+                Produkt
+            </th>
+            <th>
+                Farve
+            </th>
+            <th>
+                Størrelse
+            </th>
+            <th>
+                Pris
+            </th>
+            <th>
+                Antal
+            </th>
+            <th>
+                Total pris
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ColorCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SizeCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Price)
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    Tja
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </table>
+} else {
+    <h2>Din indkøbskurv er tom</h2>
+}

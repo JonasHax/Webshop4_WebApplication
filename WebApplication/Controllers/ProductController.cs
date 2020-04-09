@@ -34,5 +34,28 @@ namespace WebApplication.Controllers {
             }
             return View(); // hvorfor skal den være der??
         }
+
+        //[HttpPost]
+        //public ActionResult Validate(FormCollection form, int id) {
+        //    CompanyProductVersion prodVer = null;
+        //    var selectedColor = form.Get("colors");
+        //    var selectedSize = form.Get("sizes");
+
+        //    // gets the product
+        //    ServiceProduct service = new ServiceProduct();
+        //    CompanyProduct product = service.GetProductById(id);
+
+        //    if (product != null) {
+        //        prodVer = product.GetProductVersion(selectedSize, selectedColor);
+        //        //prodVer.Product = newProd;
+        //        if (prodVer != null) {
+        //            return RedirectToAction("Add", "Cart", prodVer);
+        //        } else {
+        //            return View(prodVer);
+        //        }
+        //    }
+
+        //    return View(prodVer);
+        //}
     }
 }
