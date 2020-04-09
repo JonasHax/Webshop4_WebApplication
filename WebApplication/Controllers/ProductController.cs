@@ -40,12 +40,19 @@ namespace WebApplication.Controllers {
             CompanyProductVersion prodVer = null;
             var selectedColor = form.Get("colors");
             var selectedSize = form.Get("sizes");
-            //System.Diagnostics.Debug.WriteLine(selectedColor);
-            //System.Diagnostics.Debug.WriteLine(selectedSize);
+
+            // gets the product
             ServiceProduct service = new ServiceProduct();
-            CompanyProduct product = service.GetProductById((int)id);
+            CompanyProduct product = service.GetProductById(id);
+
             if (product != null) {
                 prodVer = product.GetProductVersion(selectedSize, selectedColor);
+                //prodVer.Product = newProd;
+                if (prodVer != null) {
+                    return RedirectToAction("Add", "Cart", prodVer);
+                } else {
+                    return View(prodVer);
+                }
             }
 
             return View(prodVer);

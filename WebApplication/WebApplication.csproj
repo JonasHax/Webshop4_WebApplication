@@ -210,6 +210,7 @@
     <Content Include="Views\Login\LoginSuccess.cshtml" />
     <Content Include="Views\Customer\index.cshtml" />
     <Content Include="Views\Product\Validate.cshtml" />
+    <Content Include="Views\Cart\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

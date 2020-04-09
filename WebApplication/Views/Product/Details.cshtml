@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-@using (Html.BeginForm("Validate", "Product", new { id = @Model.StyleNumber }, FormMethod.Post)) {
+@using (Html.BeginForm("Validate", "Product", new { id = Model.StyleNumber }, FormMethod.Post)) {
     <div>
         <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">@Model.Name</h1>
@@ -73,19 +73,15 @@
                     <option value="xxl">xxl</option>
                 </select>
             </dd>
-            <button type="submit" class="btn btn-primary">Tilføj til kurv</button>
         </dl>
     </div>
 
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
-                @*@using (Html.BeginForm("Validate", "Product", new { id = Model.StyleNumber })) {
-                        <button type="submit" class="btn btn-primary">Tilføj til kurv</button>
-                    }*@
+                <button type="submit" class="btn btn-primary">Tilføj til kurv</button>
                 @*<button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Validate", "Product")'">Tilføj til kurv</button>*@
                 @*<button type="submit" class="btn btn-primary" onclick="validateAllOk()">Tilføj til kurv</button>*@
-                @*<button type="submit" class="btn btn-primary" onclick="location.href='@Url.Action("Validate", "Product", new { id = Model.StyleNumber, FormMethod.Post})'">Tilføj til kurv2</button>*@
             </div>
 
             <div class="col-sm-2">
