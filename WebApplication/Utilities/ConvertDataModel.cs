@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using WebApplication.Models;
 using WebApplication.ProductService;
+using Serviceproxy = WebApplication.ServiceReference1;
+
 
 namespace WebApplication.Utilities {
 
@@ -37,7 +39,7 @@ namespace WebApplication.Utilities {
 
         public List<CompanyProduct> ConvertFromServiceProductAllProducts(List<Product> listToConvert) {
             List<CompanyProduct> convertedList = new List<CompanyProduct>();
-
+                                             
             foreach (ProductService.Product product in listToConvert) {
                 CompanyProduct convertedProd = ConvertFromServiceProduct(product);
                 convertedList.Add(convertedProd);
@@ -45,5 +47,27 @@ namespace WebApplication.Utilities {
 
             return convertedList;
         }
+
+        public Serviceproxy.Customer ConvertToServiceCutsomer(Customer clientModelCustomer)
+        {
+            Serviceproxy.Customer foundProxyCustomer = null;
+            if (clientModelCustomer != null)
+            {
+                foundProxyCustomer = new Serviceproxy.Customer
+                {
+                    //Id = clientModelCustomer.Id,
+                    FirstName = clientModelCustomer.FirstName,
+                    LastName = clientModelCustomer.LastName,
+                    CustStreet = clientModelCustomer.CustStreet,
+                    CustNo = clientModelCustomer.CustNo,
+                    ZipCode = clientModelCustomer.ZipCode,
+                    Email = clientModelCustomer.Email,
+                    PhoneNumber = clientModelCustomer.PhoneNumber,
+                    Password = clientModelCustomer.Password
+                };
+            }
+            return foundProxyCustomer;
+        }
+
     }
 }

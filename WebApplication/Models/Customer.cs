@@ -10,30 +10,37 @@ namespace WebApplication.Models
     public class Customer
     {
 
-        public int Id { get; set; }
-        [Required]
+        //public int Id { get; set; }
+        [Required(ErrorMessage = "Please enter first name.")]
         [DisplayName("Fornavn")]
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
+
         [Required]
         [DisplayName("Efternavn")]
-        public string lastName { get; set; }
+        public string LastName { get; set; }
+
         [Required]
         [DisplayName("Vej/gade")]
-        public string custStreet { get; set; }
+        public string CustStreet { get; set; }
+
         [Required]
         [DisplayName("Nummer")]
-        public int custNo { get; set; }
+        public int CustNo { get; set; }
+
         [Required]
         [DisplayName("Postnummer")]
-        public string zipCode { get; set; }
+        public string ZipCode { get; set; }
+
         [Required]
         [DisplayName("Telefon")]
-        public string phoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
+
         [Required]
         [DisplayName("Email")]
-        public string email { get; set; }
+        public string Email { get; set; }
+
         [Required]
         [DisplayName("Password")]
-        public string password { get; set; }
+        public string Password { get; set; }
     }
 }
