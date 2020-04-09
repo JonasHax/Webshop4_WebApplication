@@ -6,7 +6,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace WebApplication {
+
     public class RouteConfig {
+
         public static void RegisterRoutes(RouteCollection routes) {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
@@ -15,6 +17,12 @@ namespace WebApplication {
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //    name: "Default2",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Product", action = "Validate", id = UrlParameter.Optional }
+            //);
         }
     }
 }

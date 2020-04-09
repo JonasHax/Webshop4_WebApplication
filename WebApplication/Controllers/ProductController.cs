@@ -34,5 +34,21 @@ namespace WebApplication.Controllers {
             }
             return View(); // hvorfor skal den være der??
         }
+
+        [HttpPost]
+        public ActionResult Validate(FormCollection form, int id) {
+            CompanyProductVersion prodVer = null;
+            var selectedColor = form.Get("colors");
+            var selectedSize = form.Get("sizes");
+            //System.Diagnostics.Debug.WriteLine(selectedColor);
+            //System.Diagnostics.Debug.WriteLine(selectedSize);
+            ServiceProduct service = new ServiceProduct();
+            CompanyProduct product = service.GetProductById((int)id);
+            if (product != null) {
+                prodVer = product.GetProductVersion(selectedSize, selectedColor);
+            }
+
+            return View(prodVer);
+        }
     }
 }

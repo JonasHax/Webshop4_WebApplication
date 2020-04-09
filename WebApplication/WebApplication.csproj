@@ -206,6 +206,7 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Login\index.cshtml" />
     <Content Include="Views\Login\LoginSuccess.cshtml" />
+    <Content Include="Views\Product\Validate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
