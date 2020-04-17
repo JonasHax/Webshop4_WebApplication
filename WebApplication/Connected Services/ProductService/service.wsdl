@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Services.Model" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IProductService_GetProduct_InputMessage">
@@ -25,6 +26,42 @@
   <wsdl:message name="IProductService_GetAllProducts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllProductsResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductService_InsertProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_InsertProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetAllSizes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSizes" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetAllSizes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSizesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetAllColors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllColors" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetAllColors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllColorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetAllCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategories" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetAllCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_InsertProductVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProductVersion" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_InsertProductVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProductVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProductService">
     <wsdl:operation name="GetProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetProduct" message="tns:IProductService_GetProduct_InputMessage" />
@@ -37,6 +74,30 @@
     <wsdl:operation name="GetAllProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetAllProducts" message="tns:IProductService_GetAllProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetAllProductsResponse" message="tns:IProductService_GetAllProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/InsertProduct" message="tns:IProductService_InsertProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/InsertProductResponse" message="tns:IProductService_InsertProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSizes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetAllSizes" message="tns:IProductService_GetAllSizes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetAllSizesResponse" message="tns:IProductService_GetAllSizes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllColors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetAllColors" message="tns:IProductService_GetAllColors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetAllColorsResponse" message="tns:IProductService_GetAllColors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetAllCategories" message="tns:IProductService_GetAllCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetAllCategoriesResponse" message="tns:IProductService_GetAllCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertProductVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/InsertProductVersion" message="tns:IProductService_InsertProductVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/InsertProductVersionResponse" message="tns:IProductService_InsertProductVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetCategory" message="tns:IProductService_GetCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetCategoryResponse" message="tns:IProductService_GetCategory_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductService" type="tns:IProductService">
@@ -61,6 +122,60 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllProducts">
       <soap:operation soapAction="http://tempuri.org/IProductService/GetAllProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProduct">
+      <soap:operation soapAction="http://tempuri.org/IProductService/InsertProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSizes">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetAllSizes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllColors">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetAllColors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetAllCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProductVersion">
+      <soap:operation soapAction="http://tempuri.org/IProductService/InsertProductVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetCategory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using WebApplication.Models;
 using WebApplication.Utilities;
-using Proxy = WebApplication.ServiceReference1;
+using Proxy = WebApplication.CustomerService;
 
 namespace WebApplication.ServiceLayer
 {

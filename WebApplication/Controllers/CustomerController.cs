@@ -29,15 +29,15 @@ namespace WebApplication.Controllers
         }
             
        
-        [HttpPost]
-        public ActionResult Create(Customer personFromBrowser)
-        {
+        //[HttpPost]
+        //public ActionResult Create(Customer personFromBrowser)
+        //{
 
-            CustomerService cs = new CustomerService();
-            cs.AddCustomer(personFromBrowser);
+        //    CustomerService cs = new CustomerService();
+        //    cs.AddCustomer(personFromBrowser);
 
-            return View("CustomerCreated");
-        }
+        //    return View("CustomerCreated");
+        //}
 
         
     }

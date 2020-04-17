@@ -33,7 +33,7 @@
   </wsdl:binding>
   <wsdl:service name="CustomerService">
     <wsdl:port name="BasicHttpBinding_ICustomerService" binding="tns:BasicHttpBinding_ICustomerService">
-      <soap:address location="http://localhost:8733/Services/CustomerService" />
+      <soap:address location="http://localhost:8734/Services/CustomerService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
