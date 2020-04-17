@@ -23,16 +23,13 @@ namespace WebApplication.CustomerService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CustNoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CustStreetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int HouseNoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
@@ -44,6 +41,9 @@ namespace WebApplication.CustomerService {
         private string PhoneNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StreetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ZipCodeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -53,32 +53,6 @@ namespace WebApplication.CustomerService {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CustNo {
-            get {
-                return this.CustNoField;
-            }
-            set {
-                if ((this.CustNoField.Equals(value) != true)) {
-                    this.CustNoField = value;
-                    this.RaisePropertyChanged("CustNo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CustStreet {
-            get {
-                return this.CustStreetField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CustStreetField, value) != true)) {
-                    this.CustStreetField = value;
-                    this.RaisePropertyChanged("CustStreet");
-                }
             }
         }
         
@@ -104,6 +78,19 @@ namespace WebApplication.CustomerService {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int HouseNo {
+            get {
+                return this.HouseNoField;
+            }
+            set {
+                if ((this.HouseNoField.Equals(value) != true)) {
+                    this.HouseNoField = value;
+                    this.RaisePropertyChanged("HouseNo");
                 }
             }
         }
@@ -143,6 +130,19 @@ namespace WebApplication.CustomerService {
                 if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
                     this.PhoneNumberField = value;
                     this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Street {
+            get {
+                return this.StreetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StreetField, value) != true)) {
+                    this.StreetField = value;
+                    this.RaisePropertyChanged("Street");
                 }
             }
         }

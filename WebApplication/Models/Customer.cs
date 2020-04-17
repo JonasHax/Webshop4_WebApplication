@@ -21,11 +21,12 @@ namespace WebApplication.Models
 
         [Required]
         [DisplayName("Vej/gade")]
-        public string CustStreet { get; set; }
+        public string Street { get; set; }
 
         [Required]
         [DisplayName("Nummer")]
-        public int CustNo { get; set; }
+        //public int CustNo { get; set; }
+        public int HouseNo { get; set; }
 
         [Required]
         [DisplayName("Postnummer")]
