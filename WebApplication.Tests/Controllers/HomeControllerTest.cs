@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebApplication;
 using WebApplication.Controllers;
+using WebApplication.Models;
+using WebApplication.ServiceLayer;
 
 namespace WebApplication.Tests.Controllers {
     [TestClass]
@@ -45,5 +47,7 @@ namespace WebApplication.Tests.Controllers {
             // Assert
             Assert.IsNotNull(result);
         }
+
+       
     }
 }

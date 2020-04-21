@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using WebApplication.Models;
 using WebApplication.ProductService;
-using Serviceproxy = WebApplication.CustomerService;
+using Serviceproxy = WebApplication.CustomerServiceReference;
 
 
 namespace WebApplication.Utilities {
@@ -78,11 +78,9 @@ namespace WebApplication.Utilities {
             {
                 foundProxyCustomer = new Serviceproxy.Customer
                 {
-                    //Id = clientModelCustomer.Id,
                     FirstName = clientModelCustomer.FirstName,
                     LastName = clientModelCustomer.LastName,
                     Street = clientModelCustomer.Street,
-                    //CustNo = clientModelCustomer.CustNo,
                     HouseNo = clientModelCustomer.HouseNo,
                     ZipCode = clientModelCustomer.ZipCode,
                     Email = clientModelCustomer.Email,

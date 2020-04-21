@@ -4,21 +4,22 @@ using System.Linq;
 using System.Web;
 using WebApplication.Models;
 using WebApplication.Utilities;
-using Proxy = WebApplication.CustomerService;
+using Proxy = WebApplication.CustomerServiceReference;
+
 
 namespace WebApplication.ServiceLayer
 {
     public class CustomerService : IUseCustomerService 
     {
-        public int AddCustomer(Customer aClientPerson)
+        public bool AddCustomer(Customer aClientPerson)
         {
-            int insertedId = -2;
+            
             Proxy.Customer customerInServiceFormat = new ConvertDataModel().ConvertToServiceCutsomer(aClientPerson);
-            using (Proxy.CustomerServiceClient customerProxy = new Proxy.CustomerServiceClient())
+            using (CustomerServiceReference.CustomerServiceClient customerProxy = new CustomerServiceReference.CustomerServiceClient())
             {
-                insertedId = customerProxy.AddCustomer(customerInServiceFormat);
+                return customerProxy.AddCustomer(customerInServiceFormat);
             }
-            return insertedId;
+                   
         }
     }
     

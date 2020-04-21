@@ -27,18 +27,18 @@ namespace WebApplication.Controllers
         {
             return View();
         }
-            
-       
-        //[HttpPost]
-        //public ActionResult Create(Customer personFromBrowser)
-        //{
 
-        //    CustomerService cs = new CustomerService();
-        //    cs.AddCustomer(personFromBrowser);
 
-        //    return View("CustomerCreated");
-        //}
+        [HttpPost]
+        public ActionResult Create(Customer personFromBrowser)
+        {
 
-        
+            CustomerService cs = new CustomerService();
+            cs.AddCustomer(personFromBrowser);
+
+            return View("CustomerCreated");
+        }
+
+
     }
 }
