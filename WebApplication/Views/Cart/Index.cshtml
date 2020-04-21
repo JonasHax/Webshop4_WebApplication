@@ -35,11 +35,9 @@
         <th></th>
     </tr>
 
-    @if (Model != null && Model.Count() > 0)
-    {
+    @if (Model != null && Model.Count() > 0) {
 
-        foreach (var item in Model)
-        {
+        foreach (var item in Model) {
 
             <tr>
                 <td>
@@ -72,13 +70,18 @@
                     </a>
                 </td>
             </tr>
-
         }
-    }
-    else
-    {
+    } else {
         <h3 style="color:red;">
             Du har ingen produkter i din indkøbskurv.
         </h3>
     }
 </table>
+
+@using (Html.BeginForm("CheckOut", "Cart")) {
+    <button type="submit" class="btn btn-primary">Gå til betaling</button>
+}
+@using (Html.BeginForm("Index", "CheckOut")) {
+    <button type="submit" class="btn btn-primary">Gå til betaling 2</button>
+}
+

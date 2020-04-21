@@ -13,6 +13,10 @@ namespace WebApplication.Utilities {
 
         CompanyProduct ConvertFromServiceProduct(ProductService.Product productToConvert);
 
+        OrderService.Product ConvertFromCompanyProduct(CompanyProduct productToConvert);
+
+        OrderService.ProductVersion ConvertFromCompanyProductVersion(CompanyProductVersion prodVerToConvert);
+
         List<CompanyProduct> ConvertFromServiceProductAllProducts(List<ProductService.Product> listToConvert);
 
         Serviceproxy.Customer ConvertToServiceCutsomer(Customer clientModelCustomer);
