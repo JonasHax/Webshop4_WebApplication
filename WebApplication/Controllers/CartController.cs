@@ -42,15 +42,50 @@ namespace WebApplication.Controllers {
 
             Session["ShoppingCart"] = ShoppingCart;
 
-            return RedirectToAction("Index", "Cart");
+            return View(ShoppingCart);
         }
 
+
+        //[HttpGet]
+        //[ActionName("Delete")]
+        //public ActionResult Delete_Get(CompanyProductVersion pro)
+        //{
+        //    if (Session["ShoppingCart"] == null)
+        //    {
+        //        ShoppingCart = new List<CompanyProductVersion>();
+        //        Session["ShoppingCart"] = ShoppingCart;
+        //    }
+
+        //    CompanyProductVersion product = pro;
+        //    return View(product);
+
+        //}
+
+        //[HttpPost]
+        //[ActionName("Delete")]
+        //public ActionResult Delete_Post(CompanyProductVersion pro)
+        //{
+
+        //    if (Session["ShoppingCart"] == null)
+        //    {
+        //        ShoppingCart = new List<CompanyProductVersion>();
+        //        Session["ShoppingCart"] = ShoppingCart;
+        //    }
+
+        //    ShoppingCart.Remove(pro);
+        //    Session["ShoppingCart"] = ShoppingCart;
+        //    return View();
+
+        //}
 
         public ActionResult Delete(int id)
         {
             ShoppingCart = (List<CompanyProductVersion>)Session["ShoppingCart"];
             ShoppingCart.RemoveAt(id);
             Session["ShoppingCart"] = ShoppingCart;
+
+
+
 
             return RedirectToAction("Index", "Cart");
 

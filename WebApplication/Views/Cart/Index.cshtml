@@ -35,19 +35,15 @@
         <th></th>
     </tr>
 
-    @if (Model != null && Model.Count() > 0)
+    @foreach (var item in Model)
     {
-
-        foreach (var item in Model)
-        {
 
             <tr>
                 <td>
-                    @(Model.ToList().IndexOf(item) + 1)
-
+                    <img src="https://i.imgur.com/Hx6uRNh.png" alt="stockimage" height="100" width="100">
                 </td>
                 <td>
-                    <img src="https://i.imgur.com/Hx6uRNh.png" alt="stockimage" height="100" width="100">
+                    @(Model.ToList().IndexOf(item) + 1)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.Name)
@@ -65,20 +61,9 @@
                     1
                 </td>
                 <td>
-                    @*@Html.ActionLink("X", "Delete", new { id = Model.ToList().IndexOf(item) })*@
-
-                    <a href='@Url.Action("Delete", "Cart", new { id = Model.ToList().IndexOf(item) } )'>
-                        <img height="20" width="20" alt="X" src='@Url.Content("https://pngimage.net/wp-content/uploads/2018/06/red-x.png-5.png")' />
-                    </a>
+                    @Html.ActionLink("X", "Delete", new { id = Model.ToList().IndexOf(item) })
                 </td>
             </tr>
-
-        }
+        
     }
-    else
-    {
-        <h3 style="color:red;">
-            Du har ingen produkter i din indkøbskurv.
-        </h3>
-    }
-</table>
+    </table>
