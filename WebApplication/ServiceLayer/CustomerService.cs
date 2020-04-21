@@ -10,15 +10,15 @@ namespace WebApplication.ServiceLayer
 {
     public class CustomerService : IUseCustomerService 
     {
-        public int AddCustomer(Customer aClientPerson)
+        public bool AddCustomer(Customer aClientPerson)
         {
-            int insertedId = -2;
+            
             Proxy.Customer customerInServiceFormat = new ConvertDataModel().ConvertToServiceCutsomer(aClientPerson);
             using (Proxy.CustomerServiceClient customerProxy = new Proxy.CustomerServiceClient())
             {
-                insertedId = customerProxy.AddCustomer(customerInServiceFormat);
+                return customerProxy.AddCustomer(customerInServiceFormat);
             }
-            return insertedId;
+                   
         }
     }
     

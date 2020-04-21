@@ -9,6 +9,6 @@ namespace WebApplication.ServiceLayer
 {
     interface IUseCustomerService
     {
-        int AddCustomer(Customer cust);
+        bool AddCustomer(Customer cust);
     }
 }

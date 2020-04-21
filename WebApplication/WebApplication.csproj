@@ -152,6 +152,9 @@
     <Compile Include="Utilities\IModelConvert.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ProductService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProductService\configuration91.svcinfo" />
     <None Include="Connected Services\ProductService\configuration.svcinfo" />
     <None Include="Connected Services\ProductService\Reference.svcmap">

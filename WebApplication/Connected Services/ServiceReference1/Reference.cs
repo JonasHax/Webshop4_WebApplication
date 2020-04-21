@@ -175,10 +175,10 @@ namespace WebApplication.ServiceReference1 {
     public interface ICustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
-        int AddCustomer(WebApplication.ServiceReference1.Customer customerToAdd);
+        bool AddCustomer(WebApplication.ServiceReference1.Customer customerToAdd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
-        System.Threading.Tasks.Task<int> AddCustomerAsync(WebApplication.ServiceReference1.Customer customerToAdd);
+        System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.ServiceReference1.Customer customerToAdd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -208,11 +208,11 @@ namespace WebApplication.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public int AddCustomer(WebApplication.ServiceReference1.Customer customerToAdd) {
+        public bool AddCustomer(WebApplication.ServiceReference1.Customer customerToAdd) {
             return base.Channel.AddCustomer(customerToAdd);
         }
         
-        public System.Threading.Tasks.Task<int> AddCustomerAsync(WebApplication.ServiceReference1.Customer customerToAdd) {
+        public System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.ServiceReference1.Customer customerToAdd) {
             return base.Channel.AddCustomerAsync(customerToAdd);
         }
     }
