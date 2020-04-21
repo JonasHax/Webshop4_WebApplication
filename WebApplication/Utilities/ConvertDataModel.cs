@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using WebApplication.Models;
 using WebApplication.ProductService;
-using Serviceproxy = WebApplication.ServiceReference1;
+using Serviceproxy = WebApplication.CustomerServiceReference;
 
 
 namespace WebApplication.Utilities {

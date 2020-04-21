@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication.ServiceReference1 {
+namespace WebApplication.CustomerServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -171,23 +171,23 @@ namespace WebApplication.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ICustomerService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomerServiceReference.ICustomerService")]
     public interface ICustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
-        bool AddCustomer(WebApplication.ServiceReference1.Customer customerToAdd);
+        bool AddCustomer(WebApplication.CustomerServiceReference.Customer customerToAdd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
-        System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.ServiceReference1.Customer customerToAdd);
+        System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.CustomerServiceReference.Customer customerToAdd);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ICustomerServiceChannel : WebApplication.ServiceReference1.ICustomerService, System.ServiceModel.IClientChannel {
+    public interface ICustomerServiceChannel : WebApplication.CustomerServiceReference.ICustomerService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CustomerServiceClient : System.ServiceModel.ClientBase<WebApplication.ServiceReference1.ICustomerService>, WebApplication.ServiceReference1.ICustomerService {
+    public partial class CustomerServiceClient : System.ServiceModel.ClientBase<WebApplication.CustomerServiceReference.ICustomerService>, WebApplication.CustomerServiceReference.ICustomerService {
         
         public CustomerServiceClient() {
         }
@@ -208,11 +208,11 @@ namespace WebApplication.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public bool AddCustomer(WebApplication.ServiceReference1.Customer customerToAdd) {
+        public bool AddCustomer(WebApplication.CustomerServiceReference.Customer customerToAdd) {
             return base.Channel.AddCustomer(customerToAdd);
         }
         
-        public System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.ServiceReference1.Customer customerToAdd) {
+        public System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.CustomerServiceReference.Customer customerToAdd) {
             return base.Channel.AddCustomerAsync(customerToAdd);
         }
     }
