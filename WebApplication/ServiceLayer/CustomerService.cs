@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 using WebApplication.Models;
 using WebApplication.Utilities;
-using Proxy = WebApplication.CustomerService;
+using Proxy = WebApplication.ServiceReference1;
+
 
 namespace WebApplication.ServiceLayer
 {
@@ -14,7 +15,7 @@ namespace WebApplication.ServiceLayer
         {
             
             Proxy.Customer customerInServiceFormat = new ConvertDataModel().ConvertToServiceCutsomer(aClientPerson);
-            using (Proxy.CustomerServiceClient customerProxy = new Proxy.CustomerServiceClient())
+            using (ServiceReference1.CustomerServiceClient customerProxy = new ServiceReference1.CustomerServiceClient())
             {
                 return customerProxy.AddCustomer(customerInServiceFormat);
             }
