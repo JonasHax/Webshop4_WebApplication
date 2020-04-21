@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApplication.Models;
-using Serviceproxy = WebApplication.ServiceReference1;
+using Serviceproxy = WebApplication.CustomerService;
 
 
 namespace WebApplication.Utilities {

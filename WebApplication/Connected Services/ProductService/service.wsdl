@@ -56,6 +56,12 @@
   <wsdl:message name="IProductService_InsertProductVersion_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertProductVersionResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductService_GetCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_GetCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoryResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProductService">
     <wsdl:operation name="GetProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetProduct" message="tns:IProductService_GetProduct_InputMessage" />
@@ -88,6 +94,10 @@
     <wsdl:operation name="InsertProductVersion">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/InsertProductVersion" message="tns:IProductService_InsertProductVersion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/InsertProductVersionResponse" message="tns:IProductService_InsertProductVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetCategory" message="tns:IProductService_GetCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetCategoryResponse" message="tns:IProductService_GetCategory_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductService" type="tns:IProductService">
@@ -157,6 +167,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertProductVersion">
       <soap:operation soapAction="http://tempuri.org/IProductService/InsertProductVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductService/GetCategory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

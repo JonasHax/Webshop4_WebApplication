@@ -282,6 +282,12 @@ namespace WebApplication.ProductService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/InsertProductVersion", ReplyAction="http://tempuri.org/IProductService/InsertProductVersionResponse")]
         System.Threading.Tasks.Task<bool> InsertProductVersionAsync(WebApplication.ProductService.ProductVersion prodVerToInsert, int styleNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetCategory", ReplyAction="http://tempuri.org/IProductService/GetCategoryResponse")]
+        string[] GetCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetCategory", ReplyAction="http://tempuri.org/IProductService/GetCategoryResponse")]
+        System.Threading.Tasks.Task<string[]> GetCategoryAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -373,6 +379,14 @@ namespace WebApplication.ProductService {
         
         public System.Threading.Tasks.Task<bool> InsertProductVersionAsync(WebApplication.ProductService.ProductVersion prodVerToInsert, int styleNumber) {
             return base.Channel.InsertProductVersionAsync(prodVerToInsert, styleNumber);
+        }
+        
+        public string[] GetCategory(int id) {
+            return base.Channel.GetCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetCategoryAsync(int id) {
+            return base.Channel.GetCategoryAsync(id);
         }
     }
 }

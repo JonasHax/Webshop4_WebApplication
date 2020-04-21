@@ -29,6 +29,14 @@ namespace WebApplication {
                 url: "Cart/Index",
                 defaults: new { controller = "Cart", action = "Add", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+              name: "DeleteFromCart",
+              url: "Cart/Delete",
+              defaults: new { controller = "Cart", action = "Delete", id = UrlParameter.Optional }
+          );
+
+
         }
     }
 }

@@ -17,7 +17,7 @@ namespace WebApplication.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Add(CompanyProduct product, FormCollection form) {
+        public ActionResult Index(CompanyProduct product, FormCollection form) {
             if (Session["ShoppingCart"] == null) {
                 ShoppingCart = new List<CompanyProductVersion>();
                 Session["ShoppingCart"] = ShoppingCart;
@@ -33,14 +33,28 @@ namespace WebApplication.Controllers {
             CompanyProductVersion prodVer = product.GetProductVersion(selectedSize, selectedColor);
 
             if (prodVer != null) {
+                ShoppingCart = (List<CompanyProductVersion>)Session["ShoppingCart"];
                 ShoppingCart.Add(prodVer);
-            } else {
+            } 
+            else {
                 return RedirectToAction("List", "Product");
             }
 
             Session["ShoppingCart"] = ShoppingCart;
 
-            return View((List<CompanyProductVersion>)Session["ShoppingCart"]);
+            return RedirectToAction("Index", "Cart");
         }
+
+
+        public ActionResult Delete(int id)
+        {
+            ShoppingCart = (List<CompanyProductVersion>)Session["ShoppingCart"];
+            ShoppingCart.RemoveAt(id);
+            Session["ShoppingCart"] = ShoppingCart;
+
+            return RedirectToAction("Index", "Cart");
+
+        }
+
     }
 }
