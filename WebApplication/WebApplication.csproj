@@ -122,17 +122,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Connected Services\CustomerServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProductService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\OrderService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="Connected Services\ProductService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -160,6 +160,16 @@
     <Compile Include="Utilities\IModelConvert.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\CustomerServiceReference\service.wsdl" />
+    <None Include="Connected Services\CustomerServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CustomerServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CustomerServiceReference\Services.Model.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\OrderService\service.wsdl" />
     <None Include="Connected Services\OrderService\service.xsd">
       <SubType>Designer</SubType>
@@ -179,15 +189,15 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\CustomerServiceReference\configuration91.svcinfo" />
-    <None Include="Connected Services\CustomerServiceReference\configuration.svcinfo" />
-    <None Include="Connected Services\CustomerServiceReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Connected Services\OrderService\configuration91.svcinfo" />
     <None Include="Connected Services\OrderService\configuration.svcinfo" />
     <None Include="Connected Services\OrderService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CustomerServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\CustomerServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\CustomerServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -216,16 +226,6 @@
     <Content Include="Connected Services\ProductService\WebApplication.ProductService.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\CustomerServiceReference\service.wsdl" />
-    <None Include="Connected Services\CustomerServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CustomerServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CustomerServiceReference\Services.Model.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -285,9 +285,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CustomerServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\OrderService\" />
     <WCFMetadataStorage Include="Connected Services\ProductService\" />
-    <WCFMetadataStorage Include="Connected Services\CustomerServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

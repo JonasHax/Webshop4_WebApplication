@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApplication.Models;
-using Serviceproxy = WebApplication.CustomerServiceReference;
 
 
 namespace WebApplication.Utilities {
@@ -19,6 +18,6 @@ namespace WebApplication.Utilities {
 
         List<CompanyProduct> ConvertFromServiceProductAllProducts(List<ProductService.Product> listToConvert);
 
-        Serviceproxy.Customer ConvertToServiceCutsomer(Customer clientModelCustomer);
+        CustomerServiceReference.Customer ConvertToServiceCutsomer(Customer clientModelCustomer);
     }
 }
