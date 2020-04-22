@@ -1,0 +1,139 @@
+﻿@model WebApplication.OrderService.Order
+
+@{
+    ViewBag.Title = "Receipt";
+}
+
+@{ 
+    decimal totalprice = 0;
+    int numberOfItems = 0;
+    if (!(Model == null)) {
+        foreach (var item in Model.SalesLineItems) {
+            totalprice += item.Product.Price * item.amount;
+            numberOfItems += item.amount;
+        }
+    }
+}
+
+<h2>Tak for din betaling</h2>
+@if (!(Model == null)) {
+    <div>
+        <h3>Din kvittering</h3>
+        <h4>Din bestilling er modtaget og er snart på vej til dig!</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Kunde id
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CustomerId)
+            </dd>
+
+            <dt>
+                Dato
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                Betalt
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                Ordrenummer
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OrderId)
+            </dd>
+
+        </dl>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Produkt
+            </th>
+            <th>
+                Antal
+            </th>
+            <th>
+                Pris
+            </th>
+            <th>
+                Størrelse
+            </th>
+            <th>
+                Farve
+            </th>
+        </tr>
+        @foreach (var item in Model.SalesLineItems) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.amount)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
+                </td>
+            </tr>
+        }
+        <tr>
+            <th>
+                Antal varer
+            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                @numberOfItems
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Total pris
+            </th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                @totalprice
+            </td>
+        </tr>
+    </table>
+} else {
+    <h2>
+        Fejl    
+    </h2>
+    <h3>
+        @ViewBag.Message
+    </h3>
+}
+
+
+
+

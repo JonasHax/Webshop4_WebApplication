@@ -19,6 +19,12 @@
   <wsdl:message name="IOrderService_AddSalesLineItemToOrder_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddSalesLineItemToOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="IOrderService_ChangeOrderToPaid_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOrderToPaid" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_ChangeOrderToPaid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeOrderToPaidResponse" />
+  </wsdl:message>
   <wsdl:portType name="IOrderService">
     <wsdl:operation name="AddOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/AddOrder" message="tns:IOrderService_AddOrder_InputMessage" />
@@ -27,6 +33,10 @@
     <wsdl:operation name="AddSalesLineItemToOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/AddSalesLineItemToOrder" message="tns:IOrderService_AddSalesLineItemToOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/AddSalesLineItemToOrderResponse" message="tns:IOrderService_AddSalesLineItemToOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrderToPaid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/ChangeOrderToPaid" message="tns:IOrderService_ChangeOrderToPaid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/ChangeOrderToPaidResponse" message="tns:IOrderService_ChangeOrderToPaid_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrderService" type="tns:IOrderService">
@@ -42,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddSalesLineItemToOrder">
       <soap:operation soapAction="http://tempuri.org/IOrderService/AddSalesLineItemToOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeOrderToPaid">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/ChangeOrderToPaid" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

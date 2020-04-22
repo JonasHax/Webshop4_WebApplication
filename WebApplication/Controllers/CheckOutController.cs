@@ -13,16 +13,18 @@ namespace WebApplication.Controllers
     public class CheckOutController : Controller
     {
         private List<CompanyProductVersion> ShoppingCart;
+        private Order sessionOrder;
 
 
         public ActionResult Index(/*Order order*/)
         {
             ShoppingCart = (List<CompanyProductVersion>)Session["ShoppingCart"];
+            sessionOrder = (Order)Session["SessionOrder"];
 
             // opret ordre
             // kunden bliver sat på hardcoded lige nu - skal senere findes fra session
             OrderService.Order order = new OrderService.Order() {
-                CustomerId = 1,
+                CustomerId = 2,
                 Date = DateTime.Now,
                 Status = false
             };
@@ -51,7 +53,46 @@ namespace WebApplication.Controllers
             // adding the saleslineitems to the order
             order.SalesLineItems = sliList.ToArray();
 
+            // add order to session
+            Session["SessionOrder"] = order;
+
             return View(order);
+        }
+
+        [HttpPost]
+        public ActionResult Receipt() {
+            Order order = (Order)Session["SessionOrder"];
+            ServiceOrder service = new ServiceOrder();
+            //bool result = true;
+
+            // add the saleslineitems to the database
+            try {
+                service.AddSalesLineItem(order.SalesLineItems.ToList());
+                // ændre ordre status til betalt
+                service.ChangeOrderToPaid(order);
+                order.Status = true;
+
+                // Opdater ordren på session
+                Session["SessionOrder"] = order;
+                // returner view hvis alt går godt
+                return View(order);
+
+            } catch (Exception e) {
+                ViewBag.Message = e.Message;     
+                return View();
+            }
+
+            // ændre ordre status til betalt
+            //service.ChangeOrderToPaid(order);
+
+            // if it fails, give error message. If not, return view
+            //if (result) {
+            //    order.Status = true;
+            //    Session["SessionOrder"] = order;
+            //    return View(order);
+            //}
+
+            //return View();
         }
     }
 }
