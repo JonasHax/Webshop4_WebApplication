@@ -23,6 +23,7 @@ namespace WebApplication.Controllers {
                 Session["ShoppingCart"] = ShoppingCart;
             }
 
+
             // add productversions to product
             ServiceProduct service = new ServiceProduct();
             product = service.GetProductById(product.StyleNumber);
@@ -42,7 +43,7 @@ namespace WebApplication.Controllers {
 
             Session["ShoppingCart"] = ShoppingCart;
 
-            return View(ShoppingCart);
+            return RedirectToAction("index", "Cart");
         }
 
 
