@@ -14,6 +14,29 @@ namespace WebApplication.Utilities {
         public ConvertDataModel() {
         }
 
+        public OrderService.Product ConvertFromCompanyProduct(CompanyProduct productToConvert) {
+            OrderService.Product convertedProduct = new OrderService.Product() {
+                Name = productToConvert.Name,
+                Description = productToConvert.Description,
+                Price = productToConvert.Price,
+                State = productToConvert.State,
+                StyleNumber = productToConvert.StyleNumber
+            };
+
+            return convertedProduct;
+        }
+
+        public OrderService.ProductVersion ConvertFromCompanyProductVersion(CompanyProductVersion prodVerToConvert) {
+            OrderService.ProductVersion convertedProdVer = new OrderService.ProductVersion() {
+                ColorCode = prodVerToConvert.ColorCode,
+                SizeCode = prodVerToConvert.SizeCode,
+                Stock = prodVerToConvert.Stock,
+                Product = ConvertFromCompanyProduct(prodVerToConvert.Product)
+            };
+
+            return convertedProdVer;
+        }
+
         public CompanyProduct ConvertFromServiceProduct(ProductService.Product productToConvert) {
             CompanyProduct convertedProduct = null;
             if (productToConvert != null) {
