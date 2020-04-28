@@ -14,12 +14,6 @@
   <wsdl:message name="IProductService_GetProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetProductResponse" />
   </wsdl:message>
-  <wsdl:message name="IProductService_GetANumber_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetANumber" />
-  </wsdl:message>
-  <wsdl:message name="IProductService_GetANumber_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetANumberResponse" />
-  </wsdl:message>
   <wsdl:message name="IProductService_GetAllProducts_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllProducts" />
   </wsdl:message>
@@ -56,20 +50,16 @@
   <wsdl:message name="IProductService_InsertProductVersion_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertProductVersionResponse" />
   </wsdl:message>
-  <wsdl:message name="IProductService_GetCategory_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCategory" />
+  <wsdl:message name="IProductService_InsertProductCategoryRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProductCategoryRelation" />
   </wsdl:message>
-  <wsdl:message name="IProductService_GetCategory_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCategoryResponse" />
+  <wsdl:message name="IProductService_InsertProductCategoryRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertProductCategoryRelationResponse" />
   </wsdl:message>
   <wsdl:portType name="IProductService">
     <wsdl:operation name="GetProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetProduct" message="tns:IProductService_GetProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetProductResponse" message="tns:IProductService_GetProduct_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetANumber">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetANumber" message="tns:IProductService_GetANumber_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetANumberResponse" message="tns:IProductService_GetANumber_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetAllProducts" message="tns:IProductService_GetAllProducts_InputMessage" />
@@ -95,24 +85,15 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/InsertProductVersion" message="tns:IProductService_InsertProductVersion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/InsertProductVersionResponse" message="tns:IProductService_InsertProductVersion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetCategory">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetCategory" message="tns:IProductService_GetCategory_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/GetCategoryResponse" message="tns:IProductService_GetCategory_OutputMessage" />
+    <wsdl:operation name="InsertProductCategoryRelation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/InsertProductCategoryRelation" message="tns:IProductService_InsertProductCategoryRelation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/InsertProductCategoryRelationResponse" message="tns:IProductService_InsertProductCategoryRelation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductService" type="tns:IProductService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetProduct">
       <soap:operation soapAction="http://tempuri.org/IProductService/GetProduct" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetANumber">
-      <soap:operation soapAction="http://tempuri.org/IProductService/GetANumber" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -174,8 +155,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetCategory">
-      <soap:operation soapAction="http://tempuri.org/IProductService/GetCategory" style="document" />
+    <wsdl:operation name="InsertProductCategoryRelation">
+      <soap:operation soapAction="http://tempuri.org/IProductService/InsertProductCategoryRelation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

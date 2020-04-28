@@ -13,9 +13,12 @@
             <p class="lead">Få mere information omkring produktet og vælg farver og størrelser nedenfor!</p>
         </div>
         <hr />
+
+        
         <dl class="dl-horizontal">
             <dt>
                 Varenummer:
+               
             </dt>
 
             <dd>
@@ -51,26 +54,23 @@
             </dt>
             @*@using (Html.BeginForm("Validate", "Product", FormMethod.Post)) {*@
 
-         
-                <dd>
+            <dd>
+                <select id="colors" name="colors" onclick="clearAlert()">
+                    <option value="default">Vælg en farve</option>
+                    @foreach (var item in Model.GetAvailableColors())
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+            </dd>
 
-                    <select id="colors" name="colors">
-                        <option value="default">Vælg en farve</option>
-                        @foreach (var item in Model.GetAvailableColors())
-                        {
-                            <option value="@item">@item</option>
-                        }
-                    </select>
-                </dd>
+            <br />
+            <dt>
+                Størrelser:
+            </dt>
 
-                <dt>
-                    Størrelser:
-                </dt>
-
-
-
-                *<dd>
-                <select id="sizes" name="sizes">
+            <dd>
+                <select id="sizes" name="sizes" onclick="clearAlert()">
                     <option value="default">vælg en størrelse</option>
                     <option value="xs">xs</option>
                     <option value="s">s</option>
@@ -81,17 +81,31 @@
                 </select>
             </dd>
 
-                @*<dd>
-                    @{var col = Request.Form["number"];}
-                    <select id="sizes" name="sizes">
-                        <option value="default">Vælg en størrelse</option>
-                        @foreach (var item in Model.GetSizesAvailableInSpecificColor(col))
-                        {
+            <br />
 
-                            <option value="@item">@item</option>
-                        }
-                    </select>
-                </dd>*@
+            <dt>
+                Antal:
+            </dt>
+
+            <dd>
+                <label for="amount">
+                    <input type="number" name="amount"  id="amount"
+                           min="1" max="100" step="1" value="1">
+                </label>
+            </dd>
+
+
+            @*<dd>
+            @{var col = Request.Form["number"];}
+            <select id="sizes" name="sizes">
+                <option value="default">Vælg en størrelse</option>
+                @foreach (var item in Model.GetSizesAvailableInSpecificColor(col))
+                {
+
+                    <option value="@item">@item</option>
+                }
+            </select>
+        </dd>*@
 
 
         </dl>
@@ -100,28 +114,25 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary" onclick="notInStock()" >Tilføj til kurv  </button>
+                <button type="submit" class="btn btn-primary"  >Tilføj til kurv  </button>
           
             </div>
 
             <div class="col-sm-2">
-                <button type="submit" class="btn btn-secondary" onclick="location.href='@Url.Action("List", "Product")'">Tilbage til produkter</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("List", "Product")'">Tilbage til produkter</button>
             </div>
         </div>
 
-        <h2 id="stockalert">
-           
-        </h2>
+        <h3 id="AlertMessage" style="color:red">   @ViewBag.Message  </h3>
     </div>
 }
 
 
-
 <script>
 
-    function notInStock() {
-        document.getElementById("stockalert").innerHTML = "Den valgte størrelse er ikke på lager";
+    function clearAlert() {
 
+        document.getElementById("AlertMessage").innerHTML = "";
     }
 
 

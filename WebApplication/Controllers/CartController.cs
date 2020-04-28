@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
+using System.Web.UI.WebControls;
 using WebApplication.Models;
 using WebApplication.OrderService;
 using WebApplication.ServiceLayer;
@@ -32,21 +34,27 @@ namespace WebApplication.Controllers {
 
             var selectedColor = form.Get("colors");
             var selectedSize = form.Get("sizes");
+            int selectedAmount = Int32.Parse(form.Get("amount"));
 
             CompanyProductVersion prodVer = product.GetProductVersion(selectedSize, selectedColor);
 
+            
+
             if (prodVer != null) {
+                prodVer.Amount = selectedAmount;
                 ShoppingCart = (List<CompanyProductVersion>)Session["ShoppingCart"];
                 ShoppingCart.Add(prodVer);
             } 
             else {
-                return RedirectToAction("List", "Product");
+                return RedirectToAction("NotInStock", "Product", new { id = product.StyleNumber });
             }
 
             Session["ShoppingCart"] = ShoppingCart;
 
             return RedirectToAction("index", "Cart");
         }
+
+      
 
 
         //[HttpGet]

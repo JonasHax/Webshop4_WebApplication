@@ -22,11 +22,14 @@ namespace WebApplication.Models {
         [DataMember]
         public decimal Price { get; set; }
 
+       
+
         [DataMember]
         public List<CompanyProductVersion> ProductVersions { get; set; }
 
         public CompanyProduct() {
             ProductVersions = new List<CompanyProductVersion>();
+         
         }
 
         public override string ToString() {
@@ -74,5 +77,7 @@ namespace WebApplication.Models {
 
             return prodVer;
         }
+
+    
     }
 }

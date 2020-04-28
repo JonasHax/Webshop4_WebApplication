@@ -19,7 +19,10 @@ namespace WebApplication.Models {
         [DataMember]
         public string ColorCode { get; set; }
 
+        public int Amount { get; set; }
+
         public CompanyProductVersion() {
+           
         }
 
         public override string ToString() {

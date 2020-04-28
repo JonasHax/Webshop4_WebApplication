@@ -16,15 +16,19 @@ namespace WebApplication.Controllers
         private Order sessionOrder;
 
 
-        public ActionResult Index(/*Order order*/)
+        public ActionResult Index(FormCollection collection)
         {
             ShoppingCart = (List<CompanyProductVersion>)Session["ShoppingCart"];
             sessionOrder = (Order)Session["SessionOrder"];
 
+            
+
+      
+
             // opret ordre
             // kunden bliver sat på hardcoded lige nu - skal senere findes fra session
             OrderService.Order order = new OrderService.Order() {
-                CustomerId = 2,
+                CustomerId = 4,
                 Date = DateTime.Now,
                 Status = false
             };
@@ -41,8 +45,8 @@ namespace WebApplication.Controllers
             List<SalesLineItem> sliList = new List<SalesLineItem>();
             foreach (CompanyProductVersion item in ShoppingCart) {
                 OrderService.SalesLineItem sli = new OrderService.SalesLineItem() {
-                    amount = 1,
-                    Price = item.Product.Price,
+                    amount = item.Amount,
+                    Price = (item.Product.Price * item.Amount),
                     Product = converter.ConvertFromCompanyProduct(item.Product),
                     ProductVersion = converter.ConvertFromCompanyProductVersion(item),
                     Order = order

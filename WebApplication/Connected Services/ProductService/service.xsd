@@ -16,20 +16,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetANumber">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="number" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetANumberResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetANumberResult" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetAllProducts">
     <xs:complexType>
       <xs:sequence />
@@ -107,17 +93,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCategory">
+  <xs:element name="InsertProductCategoryRelation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="styleNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="category" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetCategoryResponse">
+  <xs:element name="InsertProductCategoryRelationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCategoryResult" nillable="true" type="q8:ArrayOfstring" />
+        <xs:element minOccurs="0" name="InsertProductCategoryRelationResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -30,9 +30,23 @@ namespace WebApplication.Controllers {
                 CompanyProduct product = service.GetProductById((int)id);
                 return View(product);
             } else {
-                RedirectToAction("List");
+                return RedirectToAction("List");
             }
-            return View(); // hvorfor skal den være der??
+        }
+
+        public ActionResult NotinStock (int? id)
+        {
+            if (id != null && id > -1)
+            {
+                ServiceProduct service = new ServiceProduct();
+                CompanyProduct product = service.GetProductById((int)id);
+                ViewBag.Message = "Den valgte vare er ikke på lager";
+                return View("Details", product);
+            }
+            else
+            {
+                return RedirectToAction("List");
+            }
         }
 
 

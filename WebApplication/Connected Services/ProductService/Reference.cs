@@ -241,12 +241,6 @@ namespace WebApplication.ProductService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetProduct", ReplyAction="http://tempuri.org/IProductService/GetProductResponse")]
         System.Threading.Tasks.Task<WebApplication.ProductService.Product> GetProductAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetANumber", ReplyAction="http://tempuri.org/IProductService/GetANumberResponse")]
-        int GetANumber(int number);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetANumber", ReplyAction="http://tempuri.org/IProductService/GetANumberResponse")]
-        System.Threading.Tasks.Task<int> GetANumberAsync(int number);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetAllProducts", ReplyAction="http://tempuri.org/IProductService/GetAllProductsResponse")]
         WebApplication.ProductService.Product[] GetAllProducts();
         
@@ -283,11 +277,11 @@ namespace WebApplication.ProductService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/InsertProductVersion", ReplyAction="http://tempuri.org/IProductService/InsertProductVersionResponse")]
         System.Threading.Tasks.Task<bool> InsertProductVersionAsync(WebApplication.ProductService.ProductVersion prodVerToInsert, int styleNumber);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetCategory", ReplyAction="http://tempuri.org/IProductService/GetCategoryResponse")]
-        string[] GetCategory(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/InsertProductCategoryRelation", ReplyAction="http://tempuri.org/IProductService/InsertProductCategoryRelationResponse")]
+        bool InsertProductCategoryRelation(int styleNumber, string category);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetCategory", ReplyAction="http://tempuri.org/IProductService/GetCategoryResponse")]
-        System.Threading.Tasks.Task<string[]> GetCategoryAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/InsertProductCategoryRelation", ReplyAction="http://tempuri.org/IProductService/InsertProductCategoryRelationResponse")]
+        System.Threading.Tasks.Task<bool> InsertProductCategoryRelationAsync(int styleNumber, string category);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -323,14 +317,6 @@ namespace WebApplication.ProductService {
         
         public System.Threading.Tasks.Task<WebApplication.ProductService.Product> GetProductAsync(int id) {
             return base.Channel.GetProductAsync(id);
-        }
-        
-        public int GetANumber(int number) {
-            return base.Channel.GetANumber(number);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetANumberAsync(int number) {
-            return base.Channel.GetANumberAsync(number);
         }
         
         public WebApplication.ProductService.Product[] GetAllProducts() {
@@ -381,12 +367,12 @@ namespace WebApplication.ProductService {
             return base.Channel.InsertProductVersionAsync(prodVerToInsert, styleNumber);
         }
         
-        public string[] GetCategory(int id) {
-            return base.Channel.GetCategory(id);
+        public bool InsertProductCategoryRelation(int styleNumber, string category) {
+            return base.Channel.InsertProductCategoryRelation(styleNumber, category);
         }
         
-        public System.Threading.Tasks.Task<string[]> GetCategoryAsync(int id) {
-            return base.Channel.GetCategoryAsync(id);
+        public System.Threading.Tasks.Task<bool> InsertProductCategoryRelationAsync(int styleNumber, string category) {
+            return base.Channel.InsertProductCategoryRelationAsync(styleNumber, category);
         }
     }
 }
