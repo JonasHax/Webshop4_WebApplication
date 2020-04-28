@@ -45,12 +45,57 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Apollo13, Version=3.4.17344.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apollo13.3.4.17344\lib\net45\Apollo13.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo13.DataAccessLayer, Version=3.4.18001.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apollo13.DataAccessLayer.3.4.18001\lib\net45\Apollo13.DataAccessLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo13.Mapper, Version=3.4.17344.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apollo13.Mapper.3.4.17344\lib\net45\Apollo13.Mapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo13.PerformanceMonitor, Version=3.4.18001.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apollo13.PerformanceMonitor.3.4.18001.2\lib\net45\Apollo13.PerformanceMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="Apollo13.Threadworker, Version=3.4.18001.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Apollo13.Threadworker.3.4.18001.2\lib\net45\Apollo13.Threadworker.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="QPick.Classlogger, Version=3.4.17343.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QPick.Classlogger.3.4.17343\lib\net45\QPick.Classlogger.dll</HintPath>
+    </Reference>
+    <Reference Include="Qpick.Enums, Version=3.4.18037.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Qpick.Enums.3.4.18037.1\lib\net45\Qpick.Enums.dll</HintPath>
+    </Reference>
+    <Reference Include="QPick.Methodlogger, Version=3.3.17164.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QPick.Methodlogger.3.3.17164.0\lib\net45\QPick.Methodlogger.dll</HintPath>
+    </Reference>
+    <Reference Include="QPick.StocklocationMask, Version=3.3.17170.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QPick.StocklocationMask.3.3.17170.0\lib\net45\QPick.StocklocationMask.dll</HintPath>
+    </Reference>
+    <Reference Include="QPick.XML, Version=3.3.17170.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QPick.XML.3.3.17170.0\lib\net45\QPick.XML.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickPick.One, Version=3.4.18143.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickPick.One.3.4.18143.6\lib\net45\QuickPick.One.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickPickOneCLR, Version=3.4.18037.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickPickOneCLR.3.4.18037.2\lib\net45\QuickPickOneCLR.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -211,6 +256,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="NuGet.exe" />
+    <Content Include="nuget.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\ProductService\service.wsdl" />
@@ -226,6 +273,15 @@
     <Content Include="Connected Services\ProductService\WebApplication.ProductService.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="msdb.dacpac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="master.dacpac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database.dacpac">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -238,6 +294,33 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\ProductDetails.js" />
+    <None Include="Sql\2012\Microsoft.Data.Tools.Schema.Sql.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2012\Microsoft.Data.Tools.Utilities.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2012\Microsoft.SqlServer.Dac.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2014\Microsoft.Data.Tools.Schema.Sql.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2014\Microsoft.Data.Tools.Utilities.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2014\Microsoft.SqlServer.Dac.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2016\Microsoft.Data.Tools.Schema.Sql.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2016\Microsoft.Data.Tools.Utilities.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sql\2016\Microsoft.SqlServer.Dac.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
