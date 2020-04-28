@@ -1,20 +1,25 @@
-﻿@model IEnumerable<WebApplication.Models.CompanyProductVersion>
+﻿@model IEnumerable<WebApplication.OrderService.SalesLineItem>
 
 @{
     ViewBag.Title = "Index";
 }
+
 <h2>Din indkøbskurv</h2>
 
+@{
+    decimal totalprice = 0;
 
-@using (Html.BeginForm("Index", "CheckOut"))
-{
+    foreach (var item in Model) {
+        totalprice += item.Product.Price * item.amount;
+    }
+}
+
+@using (Html.BeginForm("Index", "CheckOut")) {
     <table class="table">
         <tr>
             <th>
-
             </th>
             <th>
-
             </th>
             <th>
                 Produkt
@@ -32,15 +37,16 @@
                 Antal
             </th>
             <th>
+                Deltotal
+            </th>
+            <th>
             </th>
             <th></th>
         </tr>
 
-        @if (Model != null && Model.Count() > 0)
-        {
+        @if (Model != null && Model.Count() > 0) {
 
-            foreach (var item in Model)
-            {
+            foreach (var item in Model) {
 
                 <tr>
                     <td>
@@ -53,70 +59,51 @@
                         @Html.DisplayFor(modelItem => item.Product.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ColorCode)
+                        @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.SizeCode)
+                        @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Product.Price)
                     </td>
                     <td>
-                        @*<form>
-            <label for="amount">
-                <input type="number" name="amount" onclick="" id="amount"
-                       min="1" max="100" step="1" value="@item.Product.Amount">
-            </label>
-        </form>*@
-
-                        @* @Html.TextBoxFor(modelItem => item.Product.Amount, htmlAttributes: new { @value = "control-label col-md-2" })*@
-
-                        @*<div class="form-group">
-            @Html.LabelFor(modelItem => item.Product.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(modelItem => item.Product.Amount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(modelItem => item.Product.Amount, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-                        @*@Html.TextBoxFor(modelItem => item.Amount, new { @Value = "1" })*@
-
-
-                        @Html.DisplayFor(modelItem => item.Amount)
-
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
+                    <td>
+                        @{
+                            decimal delTotal = item.Product.Price * item.amount;
+                        }
+                        @delTotal
                     </td>
                     <td>
                         @Html.ActionLink("X", "Delete", new { id = Model.ToList().IndexOf(item) })
-
                     </td>
+                    <td></td>
                 </tr>
             }
-        }
-        else
-        {
+            <tr>
+                <th>
+                    Total pris
+                </th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    @totalprice
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        } else {
             <h3 style="color:red;">
                 Du har ingen produkter i din indkøbskurv.
             </h3>
         }
     </table>
 
-
-
-
-    <button type="submit" class="btn btn-primary">Gå til betaling 2</button>
+    <button type="submit" class="btn btn-primary">Gå til betaling</button>
 }
-
-<script>
-    function getAmount() {
-        var x = document.getElementById("amount").value;
-        document.getElementById("demo").innerHTML = x;
-
-
-    }
-
-    function callAmount() {
-
-
-    }
-</script>
-

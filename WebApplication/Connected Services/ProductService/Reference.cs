@@ -282,6 +282,30 @@ namespace WebApplication.ProductService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/InsertProductCategoryRelation", ReplyAction="http://tempuri.org/IProductService/InsertProductCategoryRelationResponse")]
         System.Threading.Tasks.Task<bool> InsertProductCategoryRelationAsync(int styleNumber, string category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/DeleteProduct", ReplyAction="http://tempuri.org/IProductService/DeleteProductResponse")]
+        bool DeleteProduct(int styleNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/DeleteProduct", ReplyAction="http://tempuri.org/IProductService/DeleteProductResponse")]
+        System.Threading.Tasks.Task<bool> DeleteProductAsync(int styleNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/DeleteProductVersion", ReplyAction="http://tempuri.org/IProductService/DeleteProductVersionResponse")]
+        bool DeleteProductVersion(int styleNumber, string sizeCode, string colorCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/DeleteProductVersion", ReplyAction="http://tempuri.org/IProductService/DeleteProductVersionResponse")]
+        System.Threading.Tasks.Task<bool> DeleteProductVersionAsync(int styleNumber, string sizeCode, string colorCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/UpdateProductVersion", ReplyAction="http://tempuri.org/IProductService/UpdateProductVersionResponse")]
+        bool UpdateProductVersion(int styleNumber, string sizeCode, string colorCode, int newStock);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/UpdateProductVersion", ReplyAction="http://tempuri.org/IProductService/UpdateProductVersionResponse")]
+        System.Threading.Tasks.Task<bool> UpdateProductVersionAsync(int styleNumber, string sizeCode, string colorCode, int newStock);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/UpdateProduct", ReplyAction="http://tempuri.org/IProductService/UpdateProductResponse")]
+        bool UpdateProduct(WebApplication.ProductService.Product productToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/UpdateProduct", ReplyAction="http://tempuri.org/IProductService/UpdateProductResponse")]
+        System.Threading.Tasks.Task<bool> UpdateProductAsync(WebApplication.ProductService.Product productToUpdate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -373,6 +397,38 @@ namespace WebApplication.ProductService {
         
         public System.Threading.Tasks.Task<bool> InsertProductCategoryRelationAsync(int styleNumber, string category) {
             return base.Channel.InsertProductCategoryRelationAsync(styleNumber, category);
+        }
+        
+        public bool DeleteProduct(int styleNumber) {
+            return base.Channel.DeleteProduct(styleNumber);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteProductAsync(int styleNumber) {
+            return base.Channel.DeleteProductAsync(styleNumber);
+        }
+        
+        public bool DeleteProductVersion(int styleNumber, string sizeCode, string colorCode) {
+            return base.Channel.DeleteProductVersion(styleNumber, sizeCode, colorCode);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteProductVersionAsync(int styleNumber, string sizeCode, string colorCode) {
+            return base.Channel.DeleteProductVersionAsync(styleNumber, sizeCode, colorCode);
+        }
+        
+        public bool UpdateProductVersion(int styleNumber, string sizeCode, string colorCode, int newStock) {
+            return base.Channel.UpdateProductVersion(styleNumber, sizeCode, colorCode, newStock);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateProductVersionAsync(int styleNumber, string sizeCode, string colorCode, int newStock) {
+            return base.Channel.UpdateProductVersionAsync(styleNumber, sizeCode, colorCode, newStock);
+        }
+        
+        public bool UpdateProduct(WebApplication.ProductService.Product productToUpdate) {
+            return base.Channel.UpdateProduct(productToUpdate);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateProductAsync(WebApplication.ProductService.Product productToUpdate) {
+            return base.Channel.UpdateProductAsync(productToUpdate);
         }
     }
 }

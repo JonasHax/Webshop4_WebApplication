@@ -5,8 +5,10 @@ using System.Runtime.Serialization;
 using System.Web;
 
 namespace WebApplication.Models {
+
     [DataContract]
     public class CompanyProductVersion {
+
         [DataMember]
         public CompanyProduct Product { get; set; }
 
@@ -19,10 +21,7 @@ namespace WebApplication.Models {
         [DataMember]
         public string ColorCode { get; set; }
 
-        public int Amount { get; set; }
-
         public CompanyProductVersion() {
-           
         }
 
         public override string ToString() {

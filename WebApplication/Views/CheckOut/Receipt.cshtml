@@ -4,7 +4,7 @@
     ViewBag.Title = "Receipt";
 }
 
-@{ 
+@{
     decimal totalprice = 0;
     int numberOfItems = 0;
     if (!(Model == null)) {
@@ -15,8 +15,9 @@
     }
 }
 
-<h2>Tak for din betaling</h2>
+@*<h2>Tak for din betaling</h2>*@
 @if (!(Model == null)) {
+    <h2>Tak for din betaling</h2>
     <div>
         <h3>Din kvittering</h3>
         <h4>Din bestilling er modtaget og er snart på vej til dig!</h4>
@@ -53,7 +54,6 @@
             <dd>
                 @Html.DisplayFor(model => model.OrderId)
             </dd>
-
         </dl>
     </div>
 
@@ -81,21 +81,17 @@
                     @Html.DisplayFor(modelItem => item.Product.Name)
                 </td>
 
-
                 <td>
                     @Html.DisplayFor(modelItem => item.amount)
                 </td>
-
 
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
 
-
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
                 </td>
-
 
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
@@ -127,13 +123,9 @@
     </table>
 } else {
     <h2>
-        Fejl    
+        Fejl under betaling
     </h2>
     <h3>
         @ViewBag.Message
     </h3>
 }
-
-
-
-

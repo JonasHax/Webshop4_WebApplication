@@ -8,27 +8,20 @@ using WebApplication.OrderService;
 using WebApplication.ServiceLayer;
 using WebApplication.Utilities;
 
-namespace WebApplication.Controllers
-{
-    public class CheckOutController : Controller
-    {
-        private List<CompanyProductVersion> ShoppingCart;
+namespace WebApplication.Controllers {
+
+    public class CheckOutController : Controller {
+        private List<SalesLineItem> ShoppingCart;
         private Order sessionOrder;
 
-
-        public ActionResult Index(FormCollection collection)
-        {
-            ShoppingCart = (List<CompanyProductVersion>)Session["ShoppingCart"];
+        public ActionResult Index(FormCollection collection) {
+            ShoppingCart = (List<SalesLineItem>)Session["ShoppingCart"];
             sessionOrder = (Order)Session["SessionOrder"];
-
-            
-
-      
 
             // opret ordre
             // kunden bliver sat på hardcoded lige nu - skal senere findes fra session
             OrderService.Order order = new OrderService.Order() {
-                CustomerId = 4,
+                CustomerId = 2,
                 Date = DateTime.Now,
                 Status = false
             };
@@ -37,25 +30,15 @@ namespace WebApplication.Controllers
             ServiceOrder service = new ServiceOrder();
             int id = service.AddOrder(order);
             order.OrderId = id;
-            //order.SalesLineItems = new List<SalesLineItem>();
 
-            // konverter liste til saleslineitems
-            // tilføj saleslineitems til ordren
-            ConvertDataModel converter = new ConvertDataModel();
-            List<SalesLineItem> sliList = new List<SalesLineItem>();
-            foreach (CompanyProductVersion item in ShoppingCart) {
-                OrderService.SalesLineItem sli = new OrderService.SalesLineItem() {
-                    amount = item.Amount,
-                    Price = (item.Product.Price * item.Amount),
-                    Product = converter.ConvertFromCompanyProduct(item.Product),
-                    ProductVersion = converter.ConvertFromCompanyProductVersion(item),
-                    Order = order
-                };
-                sliList.Add(sli);
+            // add orderID to the saleslineitems
+            foreach (var sli in ShoppingCart) {
+                sli.Order = order;
             }
 
             // adding the saleslineitems to the order
-            order.SalesLineItems = sliList.ToArray();
+            //order.SalesLineItems = sliList.ToArray();
+            order.SalesLineItems = ShoppingCart.ToArray();
 
             // add order to session
             Session["SessionOrder"] = order;
@@ -78,25 +61,18 @@ namespace WebApplication.Controllers
 
                 // Opdater ordren på session
                 Session["SessionOrder"] = order;
+
+                // reset the basket
+                ShoppingCart = (List<SalesLineItem>)Session["ShoppingCart"];
+                ShoppingCart.Clear();
+                Session["ShoppingCart"] = ShoppingCart;
+
                 // returner view hvis alt går godt
                 return View(order);
-
             } catch (Exception e) {
-                ViewBag.Message = e.Message;     
+                ViewBag.Message = e.Message;
                 return View();
             }
-
-            // ændre ordre status til betalt
-            //service.ChangeOrderToPaid(order);
-
-            // if it fails, give error message. If not, return view
-            //if (result) {
-            //    order.Status = true;
-            //    Session["SessionOrder"] = order;
-            //    return View(order);
-            //}
-
-            //return View();
         }
     }
 }

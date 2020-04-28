@@ -56,6 +56,30 @@
   <wsdl:message name="IProductService_InsertProductCategoryRelation_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertProductCategoryRelationResponse" />
   </wsdl:message>
+  <wsdl:message name="IProductService_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_DeleteProductVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductVersion" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_DeleteProductVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_UpdateProductVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductVersion" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_UpdateProductVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_UpdateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProductService_UpdateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProductService">
     <wsdl:operation name="GetProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/GetProduct" message="tns:IProductService_GetProduct_InputMessage" />
@@ -88,6 +112,22 @@
     <wsdl:operation name="InsertProductCategoryRelation">
       <wsdl:input wsaw:Action="http://tempuri.org/IProductService/InsertProductCategoryRelation" message="tns:IProductService_InsertProductCategoryRelation_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProductService/InsertProductCategoryRelationResponse" message="tns:IProductService_InsertProductCategoryRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/DeleteProduct" message="tns:IProductService_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/DeleteProductResponse" message="tns:IProductService_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/DeleteProductVersion" message="tns:IProductService_DeleteProductVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/DeleteProductVersionResponse" message="tns:IProductService_DeleteProductVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/UpdateProductVersion" message="tns:IProductService_UpdateProductVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/UpdateProductVersionResponse" message="tns:IProductService_UpdateProductVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductService/UpdateProduct" message="tns:IProductService_UpdateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductService/UpdateProductResponse" message="tns:IProductService_UpdateProduct_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProductService" type="tns:IProductService">
@@ -157,6 +197,42 @@
     </wsdl:operation>
     <wsdl:operation name="InsertProductCategoryRelation">
       <soap:operation soapAction="http://tempuri.org/IProductService/InsertProductCategoryRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/IProductService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProductVersion">
+      <soap:operation soapAction="http://tempuri.org/IProductService/DeleteProductVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductVersion">
+      <soap:operation soapAction="http://tempuri.org/IProductService/UpdateProductVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/IProductService/UpdateProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
