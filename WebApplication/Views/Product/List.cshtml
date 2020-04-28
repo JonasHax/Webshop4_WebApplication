@@ -8,97 +8,62 @@
 @{
     ViewBag.Title = "List";
 }
-<h1 class="title_yo display-4">Produkter</h1>
+
+<img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage" >
+@*<h1 style="margin: 10px 0px 5px 13px;" class="title_yo">Webshop4's virkelig seje produkter</h1>*@
 
 <body>
-    <table class="table">
-        <tr class="sub_title_productList">
-            <th>
-                @Html.DisplayNameFor(model => model.StyleNumber)
-            </th>
-            <th>
-                Produkt
-            </th>
-            <th>
-                Beskrivelse
-            </th>
-            <th>
-                Pris
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StyleNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price),-
-                </td>
-                <td>
-                    @using (Html.BeginForm("Details", "Product", new { id = item.StyleNumber })) {
-                        <button type="submit" class="btn btn-primary">Se Mere</button>
-                    }
-
-                    @*@Html.ActionLink("Se produkt", "Details", new { id = item.StyleNumber })*@
-                    @*@Html.ActionLink("Tilføj Til Kurv", "AddToCart", new { id = item.StyleNumber })*@
-                    @*<button type="button" class="btn btn-primary">Se mere</button>*@
-                </td>
-            </tr>
-        }
-    </table>
-</body>
-
-<div class="container py-5">
-    <div class="row text-center text-white mb-5">
-        <div class="col-lg-7 mx-auto">
-            <h1 class="display-4">Product List</h1>
+   
+    <div class="container py-5">
+        <div class="row text-center text-white mb-5">
+            <div class="col-lg-7 mx-auto">
+                @*<h1 class="display-4">Product List</h1>*@
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-8 mx-auto">
-            <!-- List group-->
-            <ul class="list-group shadow">
-                <!-- list group item-->
-                @foreach (var item in Model) {
-                    <li class="list-group-item">
+        <div class="row justify-content-center">
+
+            <div class="col-lg mx-auto">
+                <!-- List group-->
+                <ul class="list-group shadow">
+                    <!-- list group item-->
+                    @foreach (var item in Model)
+                    {
+                     
+
+                    <li class="list-group-item" style="background-color: #ecf0f1;" >
+                        <img src="https://i.imgur.com/UfE46zA.png" alt="Product Image" class="productpic">
                         <!-- Custom content-->
                         <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                             <div class="media-body order-2 order-lg-1">
-                                <h5 class="mt-0 font-weight-bold mb-2">
+                                <h2 class="mt-0 font-weight-bold mb-2 producttext">
                                     @Html.DisplayFor(modelItem => item.Name)
-                                </h5>
+                                </h2>
                                 <p class="font-italic text-muted mb-0 small">
                                     @Html.DisplayFor(modelItem => item.Description)
                                 </p>
                                 <div class="d-flex align-items-center justify-content-between mt-1">
-                                    <h6 class="font-weight-bold my-2">
+                                    <h5 class="font-weight-bold my-2">
                                         @Html.DisplayFor(modelItem => item.Price),-
-                                    </h6>
+                                    </h5>
 
-                                    @using (Html.BeginForm("Details", "Product", new { id = item.StyleNumber })) {
-                                        <button type="submit" class="btn btn-lg btn btn-success">Se Mere</button>
+                                    @using (Html.BeginForm("Details", "Product", new { id = item.StyleNumber }))
+                                    {
+                                        <button type="submit" class="btn btn-lg btn btn-primary buybutt">Se Produkt</button>
                                     }
                                     @*<li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                        <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
-                                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>*@
+                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>*@
                                 </div>
-                            </div>@*<img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">*@
+                            </div>
                         </div> <!-- End -->
                     </li>
-                    <!-- End -->
-                    <!-- list group item-->
-                }
-            </ul> <!-- End -->
+                        <!-- End -->
+                        <!-- list group item-->
+                    }
+                </ul> <!-- End -->
+            </div>
         </div>
     </div>
-</div>
+</body>
