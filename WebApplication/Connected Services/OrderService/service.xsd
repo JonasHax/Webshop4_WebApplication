@@ -18,7 +18,7 @@
   <xs:element name="AddSalesLineItemToOrder">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="sli" nillable="true" type="q2:SalesLineItem" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="sli" nillable="true" type="q2:ArrayOfSalesLineItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -27,6 +27,18 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="AddSalesLineItemToOrderResult" type="xs:boolean" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeOrderToPaid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Services.Model" minOccurs="0" name="order" nillable="true" type="q3:Order" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeOrderToPaidResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -124,7 +124,7 @@ namespace WebApplication.OrderService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SalesLineItem", Namespace="http://schemas.datacontract.org/2004/07/Services.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SalesLineItem", Namespace="http://schemas.datacontract.org/2004/07/Services.Model", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class SalesLineItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -460,10 +460,16 @@ namespace WebApplication.OrderService {
         System.Threading.Tasks.Task<int> AddOrderAsync(WebApplication.OrderService.Order order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddSalesLineItemToOrder", ReplyAction="http://tempuri.org/IOrderService/AddSalesLineItemToOrderResponse")]
-        bool AddSalesLineItemToOrder(WebApplication.OrderService.SalesLineItem sli);
+        bool AddSalesLineItemToOrder(WebApplication.OrderService.SalesLineItem[] sli);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddSalesLineItemToOrder", ReplyAction="http://tempuri.org/IOrderService/AddSalesLineItemToOrderResponse")]
-        System.Threading.Tasks.Task<bool> AddSalesLineItemToOrderAsync(WebApplication.OrderService.SalesLineItem sli);
+        System.Threading.Tasks.Task<bool> AddSalesLineItemToOrderAsync(WebApplication.OrderService.SalesLineItem[] sli);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/ChangeOrderToPaid", ReplyAction="http://tempuri.org/IOrderService/ChangeOrderToPaidResponse")]
+        void ChangeOrderToPaid(WebApplication.OrderService.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/ChangeOrderToPaid", ReplyAction="http://tempuri.org/IOrderService/ChangeOrderToPaidResponse")]
+        System.Threading.Tasks.Task ChangeOrderToPaidAsync(WebApplication.OrderService.Order order);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -501,12 +507,20 @@ namespace WebApplication.OrderService {
             return base.Channel.AddOrderAsync(order);
         }
         
-        public bool AddSalesLineItemToOrder(WebApplication.OrderService.SalesLineItem sli) {
+        public bool AddSalesLineItemToOrder(WebApplication.OrderService.SalesLineItem[] sli) {
             return base.Channel.AddSalesLineItemToOrder(sli);
         }
         
-        public System.Threading.Tasks.Task<bool> AddSalesLineItemToOrderAsync(WebApplication.OrderService.SalesLineItem sli) {
+        public System.Threading.Tasks.Task<bool> AddSalesLineItemToOrderAsync(WebApplication.OrderService.SalesLineItem[] sli) {
             return base.Channel.AddSalesLineItemToOrderAsync(sli);
+        }
+        
+        public void ChangeOrderToPaid(WebApplication.OrderService.Order order) {
+            base.Channel.ChangeOrderToPaid(order);
+        }
+        
+        public System.Threading.Tasks.Task ChangeOrderToPaidAsync(WebApplication.OrderService.Order order) {
+            return base.Channel.ChangeOrderToPaidAsync(order);
         }
     }
 }

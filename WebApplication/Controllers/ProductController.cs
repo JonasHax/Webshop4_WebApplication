@@ -35,6 +35,7 @@ namespace WebApplication.Controllers {
             return View(); // hvorfor skal den være der??
         }
 
+
         //[HttpPost]
         //public ActionResult Validate(FormCollection form, int id) {
         //    CompanyProductVersion prodVer = null;

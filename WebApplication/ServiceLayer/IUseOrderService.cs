@@ -9,6 +9,8 @@ namespace WebApplication.ServiceLayer {
     public interface IUseOrderService {
         int AddOrder(Order order);
 
-        bool AddSalesLineItem(SalesLineItem sli);
+        bool AddSalesLineItem(List<SalesLineItem> sli);
+
+        void ChangeOrderToPaid(Order order);
     }
 }
