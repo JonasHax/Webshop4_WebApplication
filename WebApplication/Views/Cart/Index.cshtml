@@ -8,10 +8,6 @@
 
 @{
     decimal totalprice = 0;
-
-    foreach (var item in Model) {
-        totalprice += item.Product.Price * item.amount;
-    }
 }
 
 @using (Html.BeginForm("Index", "CheckOut")) {
@@ -45,6 +41,10 @@
         </tr>
 
         @if (Model != null && Model.Count() > 0) {
+
+            foreach (var item in Model) {
+                totalprice += item.Product.Price * item.amount;
+            }
 
             foreach (var item in Model) {
 
