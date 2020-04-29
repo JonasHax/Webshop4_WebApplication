@@ -20,14 +20,11 @@
     color: white;
     align-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-   
 }
-
 
 .sub_title_productList {
     color: #e74c3c;
 }
-
 
 .headimage {
     margin-left: auto;
@@ -36,18 +33,15 @@
     display: block;
 }
 
-
 .list-group-item {
     background-color: #95a5a6;
 }
 
-.buybutt{
-
+.buybutt {
     float: right;
 }
 
-.producttext{
+.producttext {
     margin-top: 0px;
     margin-bottom: 5px;
-
 }

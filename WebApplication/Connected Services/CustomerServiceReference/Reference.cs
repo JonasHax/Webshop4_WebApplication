@@ -23,6 +23,9 @@ namespace WebApplication.CustomerServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CustomerIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -53,6 +56,19 @@ namespace WebApplication.CustomerServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CustomerID {
+            get {
+                return this.CustomerIDField;
+            }
+            set {
+                if ((this.CustomerIDField.Equals(value) != true)) {
+                    this.CustomerIDField = value;
+                    this.RaisePropertyChanged("CustomerID");
+                }
             }
         }
         
@@ -179,6 +195,18 @@ namespace WebApplication.CustomerServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
         System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.CustomerServiceReference.Customer customerToAdd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
+        WebApplication.CustomerServiceReference.Customer GetCustomer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
+        System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> GetCustomerAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/CustomerLogin", ReplyAction="http://tempuri.org/ICustomerService/CustomerLoginResponse")]
+        WebApplication.CustomerServiceReference.Customer CustomerLogin(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/CustomerLogin", ReplyAction="http://tempuri.org/ICustomerService/CustomerLoginResponse")]
+        System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> CustomerLoginAsync(string email, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -214,6 +242,22 @@ namespace WebApplication.CustomerServiceReference {
         
         public System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.CustomerServiceReference.Customer customerToAdd) {
             return base.Channel.AddCustomerAsync(customerToAdd);
+        }
+        
+        public WebApplication.CustomerServiceReference.Customer GetCustomer(int id) {
+            return base.Channel.GetCustomer(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> GetCustomerAsync(int id) {
+            return base.Channel.GetCustomerAsync(id);
+        }
+        
+        public WebApplication.CustomerServiceReference.Customer CustomerLogin(string email, string password) {
+            return base.Channel.CustomerLogin(email, password);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> CustomerLoginAsync(string email, string password) {
+            return base.Channel.CustomerLoginAsync(email, password);
         }
     }
 }

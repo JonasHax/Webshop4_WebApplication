@@ -14,8 +14,6 @@
     }
 }
 
-
-
 <h2>Færdiggør din bestilling</h2>
 
 <div>
@@ -53,7 +51,6 @@
         <dd>
             @Html.DisplayFor(model => model.OrderId)
         </dd>
-
     </dl>
 </div>
 
@@ -81,21 +78,17 @@
                 @Html.DisplayFor(modelItem => item.Product.Name)
             </td>
 
-
             <td>
                 @Html.DisplayFor(modelItem => item.amount)
             </td>
-
 
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
 
-
             <td>
                 @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
             </td>
-
 
             <td>
                 @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
@@ -127,7 +120,7 @@
 </table>
 
 @using (Html.BeginForm("Receipt", "CheckOut")) {
-    <button type="submit" class="btn btn-primary">Gå til betaling</button>
+    <button type="submit" class="btn btn-primary">Betal nu</button>
 }
 
 @*<p>

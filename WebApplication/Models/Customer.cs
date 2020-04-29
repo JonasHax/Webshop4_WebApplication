@@ -6,11 +6,9 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using DO.Validation.Codes;
 
-namespace WebApplication.Models
-{
-    public class Customer
-    {
+namespace WebApplication.Models {
 
+    public class Customer {
 
         [Required(ErrorMessage = "Indtast fornavn.")]
         [DisplayName("Fornavn")]
@@ -26,7 +24,6 @@ namespace WebApplication.Models
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Indtast nummer.")]
         [DisplayName("Nummer")]
-        //public int CustNo { get; set; }
         public int HouseNo { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Indtast postnummer.")]

@@ -1,4 +1,4 @@
-﻿@model WebApplication.OrderService.Order
+﻿@model WebApplication.Models.ViewModelReciept
 
 @{
     ViewBag.Title = "Receipt";
@@ -8,35 +8,75 @@
     decimal totalprice = 0;
     int numberOfItems = 0;
     if (!(Model == null)) {
-        foreach (var item in Model.SalesLineItems) {
+        foreach (var item in Model.Order.SalesLineItems) {
             totalprice += item.Product.Price * item.amount;
             numberOfItems += item.amount;
         }
     }
+
+    string fullname = Model.Customer.FirstName + " " + Model.Customer.LastName;
+    string fullAddress = Model.Customer.Street + " " + Model.Customer.HouseNo + ", " + Model.Customer.ZipCode;
 }
 
 @*<h2>Tak for din betaling</h2>*@
 @if (!(Model == null)) {
     <h2>Tak for din betaling</h2>
+    <hr />
     <div>
         <h3>Din kvittering</h3>
         <h4>Din bestilling er modtaget og er snart på vej til dig!</h4>
         <hr />
+        <h4>Dine kundeoplysninger</h4>
         <dl class="dl-horizontal">
             <dt>
                 Kunde id
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.CustomerId)
+                @Html.DisplayFor(model => model.Customer.CustomerID)
             </dd>
 
+            <dt>
+                Navn
+            </dt>
+
+            <dd>
+                @fullname
+            </dd>
+
+            <dt>
+                Email
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.Email)
+            </dd>
+
+            <dt>
+                Telefonnummer
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer.PhoneNumber)
+            </dd>
+
+            <dt>
+                Leveres til
+            </dt>
+
+            <dd>
+                @fullAddress
+            </dd>
+        </dl>
+        <hr />
+        <h4>Information om din bestilling</h4>
+        <dl class="dl-horizontal">
             <dt>
                 Dato
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Date)
+                @Html.DisplayFor(model => model.Order.Date)
             </dd>
 
             <dt>
@@ -44,7 +84,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Status)
+                @Html.DisplayFor(model => model.Order.Status)
             </dd>
 
             <dt>
@@ -52,7 +92,7 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.OrderId)
+                @Html.DisplayFor(model => model.Order.OrderId)
             </dd>
         </dl>
     </div>
@@ -75,7 +115,7 @@
                 Farve
             </th>
         </tr>
-        @foreach (var item in Model.SalesLineItems) {
+        @foreach (var item in Model.Order.SalesLineItems) {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Product.Name)
