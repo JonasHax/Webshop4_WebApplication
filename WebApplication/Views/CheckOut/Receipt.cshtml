@@ -18,153 +18,154 @@
     string fullAddress = Model.Customer.Street + " " + Model.Customer.HouseNo + ", " + Model.Customer.ZipCode;
 }
 
-    <img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
+<img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
 
 @*<h2>Tak for din betaling</h2>*@
 @if (!(Model == null)) {
     <h2>Tak for din betaling</h2>
     <hr />
     <div>
-    <h2 class="siteheadline">Tak for din betaling</h2>
-    <div class="sitebg">
-        <h3>Din kvittering</h3>
-        <h4>Din bestilling er modtaget og er snart på vej til dig!</h4>
-        <hr />
-        <h4>Dine kundeoplysninger</h4>
-        <dl class="dl-horizontal">
-            <dt>
-                Kunde id
-            </dt>
+        <h2 class="siteheadline">Tak for din betaling</h2>
+        <div class="sitebg">
+            <h3>Din kvittering</h3>
+            <h4>Din bestilling er modtaget og er snart på vej til dig!</h4>
+            <hr />
+            <h4>Dine kundeoplysninger</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    Kunde id
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Customer.CustomerID)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Customer.CustomerID)
+                </dd>
 
-            <dt>
-                Navn
-            </dt>
+                <dt>
+                    Navn
+                </dt>
 
-            <dd>
-                @fullname
-            </dd>
+                <dd>
+                    @fullname
+                </dd>
 
-            <dt>
-                Email
-            </dt>
+                <dt>
+                    Email
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Customer.Email)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Customer.Email)
+                </dd>
 
-            <dt>
-                Telefonnummer
-            </dt>
+                <dt>
+                    Telefonnummer
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Customer.PhoneNumber)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Customer.PhoneNumber)
+                </dd>
 
-            <dt>
-                Leveres til
-            </dt>
+                <dt>
+                    Leveres til
+                </dt>
 
-            <dd>
-                @fullAddress
-            </dd>
-        </dl>
-        <hr />
-        <h4>Information om din bestilling</h4>
-        <dl class="dl-horizontal">
-            <dt>
-                Dato
-            </dt>
+                <dd>
+                    @fullAddress
+                </dd>
+            </dl>
+            <hr />
+            <h4>Information om din bestilling</h4>
+            <dl class="dl-horizontal">
+                <dt>
+                    Dato
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Order.Date)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Order.Date)
+                </dd>
 
-            <dt>
-                Betalt
-            </dt>
+                <dt>
+                    Betalt
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Order.Status)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Order.Status)
+                </dd>
 
-            <dt>
-                Ordrenummer
-            </dt>
+                <dt>
+                    Ordrenummer
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Order.OrderId)
-            </dd>
-        </dl>
-    </div>
+                <dd>
+                    @Html.DisplayFor(model => model.Order.OrderId)
+                </dd>
+            </dl>
+        </div>
 
-    <table class="table sitebg">
-        <tr>
-            <th>
-                Produkt
-            </th>
-            <th>
-                Antal
-            </th>
-            <th>
-                Pris
-            </th>
-            <th>
-                Størrelse
-            </th>
-            <th>
-                Farve
-            </th>
-        </tr>
-        @foreach (var item in Model.Order.SalesLineItems) {
+        <table class="table sitebg">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product.Name)
-                </td>
+                <th>
+                    Produkt
+                </th>
+                <th>
+                    Antal
+                </th>
+                <th>
+                    Pris
+                </th>
+                <th>
+                    Størrelse
+                </th>
+                <th>
+                    Farve
+                </th>
+            </tr>
+            @foreach (var item in Model.Order.SalesLineItems) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Name)
+                    </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.amount)
-                </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                    </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
-                </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
+                    </td>
 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
+                    </td>
+                </tr>
+            }
+            <tr>
+                <th>
+                    Antal varer
+                </th>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
+                    @numberOfItems
                 </td>
             </tr>
-        }
-        <tr>
-            <th>
-                Antal varer
-            </th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                @numberOfItems
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Total pris
-            </th>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                @totalprice
-            </td>
-        </tr>
-    </table>
+            <tr>
+                <th>
+                    Total pris
+                </th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    @totalprice
+                </td>
+            </tr>
+        </table>
+    </div>
 } else {
     <h2 class="blacktext">
         Fejl under betaling

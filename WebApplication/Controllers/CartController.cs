@@ -38,7 +38,7 @@ namespace WebApplication.Controllers {
             CompanyProductVersion prodVer = product.GetProductVersion(selectedSize, selectedColor);
 
             ConvertDataModel converter = new ConvertDataModel();
-           
+
             if (prodVer != null) {
                 SalesLineItem lineitem = new SalesLineItem() {
                     amount = selectedAmount,
