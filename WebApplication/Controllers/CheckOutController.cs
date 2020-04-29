@@ -21,7 +21,7 @@ namespace WebApplication.Controllers {
             // opret ordre
             // kunden bliver sat på hardcoded lige nu - skal senere findes fra session
             OrderService.Order order = new OrderService.Order() {
-                CustomerId = 2,
+                CustomerId = 4,
                 Date = DateTime.Now,
                 Status = false
             };

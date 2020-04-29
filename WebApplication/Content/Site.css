@@ -1,7 +1,9 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    background-color: #34495e; /* Til browsere uden gradient support */
+    background-image: linear-gradient(#34495e, #1c2731);
+    min-height: 100vh
 }
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -24,6 +26,32 @@ textarea {
 }
 
 .background {
-    background: linear-gradient(right, #c04848, #480048);
-    min-height: 100vh;
+    background-color: #34495e; /* Til browsere uden gradient support */
+    background-image: linear-gradient(#34495e, #1c2731);
+    min-height: 100vh
+}
+
+.sitebg {
+    background-color: #ecf0f1;
+    border-radius: 5px;
+
+}
+
+.siteheadline {
+    margin-top: 10%;
+    color: #ecf0f1;
+}
+
+.siteheadline2 {
+
+    color: #ecf0f1;
+}
+
+.whitetext {
+    color: #ecf0f1;
+}
+
+
+.blacktext {
+    color: black;
 }
