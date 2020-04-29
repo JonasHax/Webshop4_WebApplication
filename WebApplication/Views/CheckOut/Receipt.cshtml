@@ -17,8 +17,8 @@
 
 @*<h2>Tak for din betaling</h2>*@
 @if (!(Model == null)) {
-    <h2>Tak for din betaling</h2>
-    <div>
+    <h2 class="siteheadline">Tak for din betaling</h2>
+    <div class="sitebg">
         <h3>Din kvittering</h3>
         <h4>Din bestilling er modtaget og er snart på vej til dig!</h4>
         <hr />
@@ -57,7 +57,7 @@
         </dl>
     </div>
 
-    <table class="table">
+    <table class="table sitebg">
         <tr>
             <th>
                 Produkt
@@ -122,10 +122,10 @@
         </tr>
     </table>
 } else {
-    <h2>
+    <h2 class="blacktext">
         Fejl under betaling
     </h2>
-    <h3>
+    <h3 class="blacktext">
         @ViewBag.Message
     </h3>
 }
