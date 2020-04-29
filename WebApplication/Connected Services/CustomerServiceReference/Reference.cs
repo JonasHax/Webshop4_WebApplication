@@ -243,21 +243,5 @@ namespace WebApplication.CustomerServiceReference {
         public System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.CustomerServiceReference.Customer customerToAdd) {
             return base.Channel.AddCustomerAsync(customerToAdd);
         }
-        
-        public WebApplication.CustomerServiceReference.Customer GetCustomer(int id) {
-            return base.Channel.GetCustomer(id);
-        }
-        
-        public System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> GetCustomerAsync(int id) {
-            return base.Channel.GetCustomerAsync(id);
-        }
-        
-        public WebApplication.CustomerServiceReference.Customer CustomerLogin(string email, string password) {
-            return base.Channel.CustomerLogin(email, password);
-        }
-        
-        public System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> CustomerLoginAsync(string email, string password) {
-            return base.Channel.CustomerLoginAsync(email, password);
-        }
     }
 }

@@ -10,7 +10,6 @@ using WebApplication.ServiceLayer;
 using WebApplication.Utilities;
 
 namespace WebApplication.Controllers {
-
     public class CheckOutController : Controller {
         private List<SalesLineItem> ShoppingCart;
         private Order sessionOrder;
