@@ -7,6 +7,7 @@
 @using (Html.BeginForm("Index", "Cart", Model))
 {
 
+    <img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
     <div class="sitebg">
         <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">@Model.Name</h1>
@@ -14,11 +15,11 @@
         </div>
         <hr />
 
-        
+
         <dl class="dl-horizontal">
             <dt>
                 Varenummer:
-               
+
             </dt>
 
             <dd>
@@ -89,23 +90,23 @@
 
             <dd>
                 <label for="amount">
-                    <input type="number" name="amount"  id="amount"
+                    <input type="number" name="amount" id="amount"
                            min="1" max="100" step="1" value="1">
                 </label>
             </dd>
 
 
             @*<dd>
-            @{var col = Request.Form["number"];}
-            <select id="sizes" name="sizes">
-                <option value="default">Vælg en størrelse</option>
-                @foreach (var item in Model.GetSizesAvailableInSpecificColor(col))
-                {
+                    @{var col = Request.Form["number"];}
+                    <select id="sizes" name="sizes">
+                        <option value="default">Vælg en størrelse</option>
+                        @foreach (var item in Model.GetSizesAvailableInSpecificColor(col))
+                        {
 
-                    <option value="@item">@item</option>
-                }
-            </select>
-        </dd>*@
+                            <option value="@item">@item</option>
+                        }
+                    </select>
+                </dd>*@
 
 
         </dl>
@@ -114,8 +115,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary"  >Tilføj til kurv  </button>
-          
+                <button type="submit" class="btn btn-primary">Tilføj til kurv  </button>
+
             </div>
 
             <div class="col-sm-2">

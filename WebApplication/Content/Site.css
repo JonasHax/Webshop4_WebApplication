@@ -38,7 +38,7 @@ textarea {
 }
 
 .siteheadline {
-    margin-top: 10%;
+    margin-top: 3%;
     color: #ecf0f1;
 }
 
@@ -55,3 +55,43 @@ textarea {
 .blacktext {
     color: black;
 }
+
+.headimage {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    display: block;
+}
+
+.mainmenubtn{
+
+    margin: 0.5%;
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 60px;
+}
+
+.fadeimage {
+  
+    animation: fadeInAnimation ease 6s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+} 
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+
+    }
+
+    100% {
+        opacity: 1;
+    }
+} 
+
