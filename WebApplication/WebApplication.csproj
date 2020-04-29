@@ -351,6 +351,7 @@
     <Content Include="Views\CheckOut\Index.cshtml" />
     <Content Include="Views\CheckOut\Receipt.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\Mainmenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

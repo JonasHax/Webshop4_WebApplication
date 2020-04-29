@@ -1,109 +1,123 @@
-﻿@model IEnumerable<WebApplication.OrderService.SalesLineItem>
+﻿
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+@model IEnumerable<WebApplication.OrderService.SalesLineItem>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Din indkøbskurv</h2>
+
 
 @{
     decimal totalprice = 0;
 }
 
-@using (Html.BeginForm("Index", "CheckOut")) {
-    <table class="table">
-        <tr>
-            <th>
-            </th>
-            <th>
-            </th>
-            <th>
-                Produkt
-            </th>
-            <th>
-                Farve
-            </th>
-            <th>
-                Størrelse
-            </th>
-            <th>
-                Stk. pris
-            </th>
-            <th>
-                Antal
-            </th>
-            <th>
-                Deltotal
-            </th>
-            <th>
-            </th>
-            <th></th>
-        </tr>
+<img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
+<body>
+    @using (Html.BeginForm("Index", "CheckOut"))
+    {
+    <h2 class="siteheadline">Din indkøbskurv</h2>
+        <table class="table sitebg">
 
-        @if (Model != null && Model.Count() > 0) {
+            <tr>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>
+                    Produkt
+                </th>
+                <th>
+                    Farve
+                </th>
+                <th>
+                    Størrelse
+                </th>
+                <th>
+                    Stk. pris
+                </th>
+                <th>
+                    Antal
+                </th>
+                <th>
+                    Deltotal
+                </th>
+                <th>
+                </th>
+                <th></th>
+            </tr>
 
-            foreach (var item in Model) {
-                totalprice += item.Product.Price * item.amount;
-            }
+            @if (Model != null && Model.Count() > 0)
+            {
 
-            foreach (var item in Model) {
+                foreach (var item in Model)
+                {
+                    totalprice += item.Product.Price * item.amount;
+                }
 
+                foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            <img src="https://i.imgur.com/Hx6uRNh.png" alt="stockimage" height="100" width="100">
+                        </td>
+                        <td>
+                            @(Model.ToList().IndexOf(item) + 1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.amount)
+                        </td>
+                        <td>
+                            @{
+                                decimal delTotal = item.Product.Price * item.amount;
+                            }
+                            @delTotal
+                        </td>
+                        <td>
+                            @Html.ActionLink("X", "Delete", new { id = Model.ToList().IndexOf(item) })
+                        </td>
+                        <td></td>
+                    </tr>
+                }
                 <tr>
+                    <th>
+                        Total pris
+                    </th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>
-                        <img src="https://i.imgur.com/Hx6uRNh.png" alt="stockimage" height="100" width="100">
+                        @totalprice
                     </td>
-                    <td>
-                        @(Model.ToList().IndexOf(item) + 1)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Product.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductVersion.ColorCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ProductVersion.SizeCode)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Product.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.amount)
-                    </td>
-                    <td>
-                        @{
-                            decimal delTotal = item.Product.Price * item.amount;
-                        }
-                        @delTotal
-                    </td>
-                    <td>
-                        @Html.ActionLink("X", "Delete", new { id = Model.ToList().IndexOf(item) })
-                    </td>
+                    <td></td>
                     <td></td>
                 </tr>
             }
-            <tr>
-                <th>
-                    Total pris
-                </th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    @totalprice
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-        } else {
-            <h3 style="color:red;">
-                Du har ingen produkter i din indkøbskurv.
-            </h3>
-        }
-    </table>
+            else
+            {
+                <h3 style="color:red;">
+                    Du har ingen produkter i din indkøbskurv.
+                </h3>
+            }
+        </table>
 
-    <button type="submit" class="btn btn-primary">Gå til betaling</button>
-}
+        <button type="submit" class="btn btn-primary">Gå til betaling</button>
+    }
+</body>

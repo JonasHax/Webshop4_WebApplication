@@ -1,8 +1,32 @@
 ﻿@{
+
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/Mainmenu.cshtml";
+
 }
 
-<div class="jumbotron">
-    <h1>Gruppe 4 - Webshop</h1>
-    <p class="lead">dmaa0219 Gruppe 4 semesterprojekt 3. semester</p>
+
+
+@*<div class="jumbotron">
+        <h1>Gruppe 4 - Webshop</h1>
+        <p class="lead">dmaa0219 Gruppe 4 semesterprojekt 3. semester</p>
+    </div>*@
+
+
+<img src="https://i.imgur.com/TWSTK8s.png" alt="head image" class="headimage fadeimage" style="  margin-top: 15%;">
+
+<div class="text-center">
+    <button type="button" class="btn btn-primary btn-xl mainmenubtn fadeimage" onclick="location.href='@Url.Action("List", "Product")'">Produkter</button>
+    <button type="button" class="btn btn-primary btn-xl mainmenubtn fadeimage" onclick="location.href='@Url.Action("Index", "Login")'">Login</button>
+    <button type="button" class="btn btn-primary btn-xl mainmenubtn fadeimage" onclick="location.href='@Url.Action("Create", "Customer")'">Opret bruger</button>
+
 </div>
+
+
+
+<script>
+
+
+
+
+</script>
