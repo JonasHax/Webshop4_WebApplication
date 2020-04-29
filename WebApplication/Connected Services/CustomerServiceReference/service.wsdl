@@ -13,16 +13,35 @@
   <wsdl:message name="ICustomerService_AddCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="ICustomerService_GetCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomer" />
+  </wsdl:message>
+  <wsdl:message name="ICustomerService_GetCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCustomerResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICustomerService">
     <wsdl:operation name="AddCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/AddCustomer" message="tns:ICustomerService_AddCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/AddCustomerResponse" message="tns:ICustomerService_AddCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICustomerService/GetCustomer" message="tns:ICustomerService_GetCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICustomerService/GetCustomerResponse" message="tns:ICustomerService_GetCustomer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICustomerService" type="tns:ICustomerService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AddCustomer">
       <soap:operation soapAction="http://tempuri.org/ICustomerService/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction="http://tempuri.org/ICustomerService/GetCustomer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

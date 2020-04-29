@@ -179,6 +179,12 @@ namespace WebApplication.CustomerServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/AddCustomer", ReplyAction="http://tempuri.org/ICustomerService/AddCustomerResponse")]
         System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.CustomerServiceReference.Customer customerToAdd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
+        WebApplication.CustomerServiceReference.Customer GetCustomer(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/GetCustomer", ReplyAction="http://tempuri.org/ICustomerService/GetCustomerResponse")]
+        System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> GetCustomerAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -214,6 +220,14 @@ namespace WebApplication.CustomerServiceReference {
         
         public System.Threading.Tasks.Task<bool> AddCustomerAsync(WebApplication.CustomerServiceReference.Customer customerToAdd) {
             return base.Channel.AddCustomerAsync(customerToAdd);
+        }
+        
+        public WebApplication.CustomerServiceReference.Customer GetCustomer(int id) {
+            return base.Channel.GetCustomer(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.CustomerServiceReference.Customer> GetCustomerAsync(int id) {
+            return base.Channel.GetCustomerAsync(id);
         }
     }
 }

@@ -215,6 +215,9 @@
     <None Include="Connected Services\CustomerServiceReference\Services.Model.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Connected Services\CustomerServiceReference\WebApplication.CustomerServiceReference.Customer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\OrderService\service.wsdl" />
     <None Include="Connected Services\OrderService\service.xsd">
       <SubType>Designer</SubType>
