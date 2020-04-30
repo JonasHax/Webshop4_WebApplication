@@ -26,6 +26,8 @@ namespace WebApplication.Controllers {
 
             // valider korrekt login
             if (customer != null) {
+                // reset
+                Session["LoggedInUser"] = null;
                 // tilføj bruger til Session
                 Session["LoggedInUser"] = customer;
                 return View("LoginSuccess");
