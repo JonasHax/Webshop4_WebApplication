@@ -22,5 +22,11 @@ namespace WebApplication.ServiceLayer {
             OrderServiceClient proxy = new OrderServiceClient();
             proxy.ChangeOrderToPaid(order);
         }
+
+        public Order GetOrder(int id)
+        {
+            OrderServiceClient proxy = new OrderServiceClient();
+            return proxy.GetOrder(id);
+        }
     }
 }

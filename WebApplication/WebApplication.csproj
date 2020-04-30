@@ -229,6 +229,9 @@
     <None Include="Connected Services\OrderService\Services.Model.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Connected Services\OrderService\WebApplication.OrderService.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ProductService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>

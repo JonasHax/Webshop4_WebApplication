@@ -12,5 +12,7 @@ namespace WebApplication.ServiceLayer {
         bool AddSalesLineItem(List<SalesLineItem> sli);
 
         void ChangeOrderToPaid(Order order);
+
+        Order GetOrder(int id);
     }
 }

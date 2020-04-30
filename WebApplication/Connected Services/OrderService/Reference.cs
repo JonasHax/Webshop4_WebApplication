@@ -470,6 +470,12 @@ namespace WebApplication.OrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/ChangeOrderToPaid", ReplyAction="http://tempuri.org/IOrderService/ChangeOrderToPaidResponse")]
         System.Threading.Tasks.Task ChangeOrderToPaidAsync(WebApplication.OrderService.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
+        WebApplication.OrderService.Order GetOrder(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
+        System.Threading.Tasks.Task<WebApplication.OrderService.Order> GetOrderAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -521,6 +527,14 @@ namespace WebApplication.OrderService {
         
         public System.Threading.Tasks.Task ChangeOrderToPaidAsync(WebApplication.OrderService.Order order) {
             return base.Channel.ChangeOrderToPaidAsync(order);
+        }
+        
+        public WebApplication.OrderService.Order GetOrder(int id) {
+            return base.Channel.GetOrder(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.OrderService.Order> GetOrderAsync(int id) {
+            return base.Channel.GetOrderAsync(id);
         }
     }
 }
