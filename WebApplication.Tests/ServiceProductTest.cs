@@ -10,17 +10,14 @@ using WebApplication.ProductService;
 using WebApplication.ServiceLayer;
 using WebApplication.Utilities;
 
-namespace WebApplication.Tests
-{
+namespace WebApplication.Tests {
 
     [TestClass]
-    public class ServiceProductTest
-    {
-        readonly ServiceProduct testservice = new ServiceProduct();
+    public class ServiceProductTest {
+        private readonly ServiceProduct testservice = new ServiceProduct();
 
         [TestMethod]
-        public void TestGetAllProducts()
-        {
+        public void TestGetAllProducts() {
             //Arrange and Act
             List<CompanyProduct> productList = testservice.GetAllProducts();
 
@@ -28,12 +25,10 @@ namespace WebApplication.Tests
             Assert.IsTrue(productList.Count > 0);
         }
 
-
         [TestMethod]
-        public void TestGetProductById()
-        {
+        public void TestGetProductById() {
             //Arrange and Act
-            CompanyProduct product =testservice.GetProductById(3);
+            CompanyProduct product = testservice.GetProductById(3);
 
             //Assert
             Assert.IsNotNull(product.Name);
@@ -44,8 +39,7 @@ namespace WebApplication.Tests
         }
 
         [TestMethod]
-        public void TestGetColors()
-        {
+        public void TestGetColors() {
             //Arrange
             CompanyProduct product = testservice.GetProductById(3);
 
@@ -56,36 +50,28 @@ namespace WebApplication.Tests
             Assert.IsTrue(colors.Count > 0);
         }
 
-
         [TestMethod]
-        public void TestGetSizesFromColor()
-        {
+        public void TestGetSizesFromColor() {
             //Arrange
             CompanyProduct product = testservice.GetProductById(3);
 
             //Act
-            List<string> sizes = product.GetSizesAvailableInSpecificColor("blue");
+            List<string> sizes = product.GetSizesAvailableInSpecificColor("Blue");
 
             //Assert
             Assert.IsTrue(sizes.Count > 0);
         }
 
         [TestMethod]
-        public void TestGetProductVersion()
-        {
+        public void TestGetProductVersion() {
             //Arrange
             CompanyProduct product = testservice.GetProductById(3);
 
             //Act
-            CompanyProductVersion prodver = product.GetProductVersion("m", "blue");
-
+            CompanyProductVersion prodver = product.GetProductVersion("m", "Blue");
 
             //Assert
-            Assert.IsTrue(prodver != null );
+            Assert.IsTrue(prodver != null);
         }
-
-
-
-
     }
 }
