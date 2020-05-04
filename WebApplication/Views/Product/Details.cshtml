@@ -53,7 +53,7 @@
             <dt>
                 Tilgængelige farver:
             </dt>
-            @*@using (Html.BeginForm("Validate", "Product", FormMethod.Post)) {*@
+         
 
             <dd>
                 <select id="colors" name="colors" onclick="clearAlert()">
@@ -96,17 +96,7 @@
             </dd>
 
 
-            @*<dd>
-                    @{var col = Request.Form["number"];}
-                    <select id="sizes" name="sizes">
-                        <option value="default">Vælg en størrelse</option>
-                        @foreach (var item in Model.GetSizesAvailableInSpecificColor(col))
-                        {
-
-                            <option value="@item">@item</option>
-                        }
-                    </select>
-                </dd>*@
+         
 
 
         </dl>
@@ -139,54 +129,3 @@
 
 </script>
 
-@*<script>
-    function validateAllOk() {
-        var selectedColor = document.getElementById("colors").value;
-        var selectedSize = document.getElementById("sizes").value;
-        if (selectedColor != "default" && selectedSize != "default") {
-            alert("Farve: " + selectedColor + "\nStr: " + selectedSize);
-            //@Url.Action("Validate", "Product", new { product = Model, color = "blue", size = "l"});
-        } else if (selectedColor == "default" && selectedSize != "default") {
-            alert("Vælg en farve");
-        } else if (selectedColor != "default" && selectedSize == "default") {
-            alert("Vælg en størrelse");
-        } else {
-            alert("Vælg farve og størrelse");
-        }*@
-
-@*// tjek om den valgte combination eksisterer i systemet*@
-@*@{
-        CompanyProductVersion product = Model.GetProductVersion(selectedColor, selectedSize);
-        if (product != null) {
-            // gør noget
-        }
-    }*@
-
-@*//alert(selectedColor + " - " + selectedSize);*@
-@*}
-    </script>*@
-
-@*<script>
-        function ChangeSizes(value) {
-            var sizeComboBox = document.getElementById("sizes");
-
-            @foreach (var item in Model.GetSizesAvailableInSpecificColor("blue")) {
-
-                var opt = document.createElement('option');
-
-                opt.appendChild(document.createTextNode('XL'));
-
-                sizeComboBox.appendChild(opt);
-            }
-
-            var opt = document.createElement('option');
-
-            opt.appendChild(document.createTextNode('XL'));
-
-            sizeComboBox.appendChild(opt);
-
-            alert(opt.value);
-
-            alert(sizeComboBox.innerHTML);
-        }
-    </script>*@

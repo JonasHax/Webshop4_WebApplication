@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApplication.Models;
+using WebApplication.OrderService;
 using WebApplication.ProductService;
 using WebApplication.ServiceLayer;
 using WebApplication.Utilities;
@@ -16,7 +17,6 @@ namespace WebApplication.Tests
     public class ServiceProductTest
     {
         readonly ServiceProduct testservice = new ServiceProduct();
-
 
         [TestMethod]
         public void TestGetAllProducts()
@@ -83,7 +83,6 @@ namespace WebApplication.Tests
             //Assert
             Assert.IsTrue(prodver != null );
         }
-
 
 
 
