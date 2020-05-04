@@ -34,43 +34,15 @@ namespace WebApplication.Controllers {
             }
         }
 
-        public ActionResult NotinStock (int? id)
-        {
-            if (id != null && id > -1)
-            {
+        public ActionResult NotinStock(int? id) {
+            if (id != null && id > -1) {
                 ServiceProduct service = new ServiceProduct();
                 CompanyProduct product = service.GetProductById((int)id);
                 ViewBag.Message = "Den valgte vare er ikke på lager";
                 return View("Details", product);
-            }
-            else
-            {
+            } else {
                 return RedirectToAction("List");
             }
         }
-
-
-        //[HttpPost]
-        //public ActionResult Validate(FormCollection form, int id) {
-        //    CompanyProductVersion prodVer = null;
-        //    var selectedColor = form.Get("colors");
-        //    var selectedSize = form.Get("sizes");
-
-        //    // gets the product
-        //    ServiceProduct service = new ServiceProduct();
-        //    CompanyProduct product = service.GetProductById(id);
-
-        //    if (product != null) {
-        //        prodVer = product.GetProductVersion(selectedSize, selectedColor);
-        //        //prodVer.Product = newProd;
-        //        if (prodVer != null) {
-        //            return RedirectToAction("Add", "Cart", prodVer);
-        //        } else {
-        //            return View(prodVer);
-        //        }
-        //    }
-
-        //    return View(prodVer);
-        //}
     }
 }
