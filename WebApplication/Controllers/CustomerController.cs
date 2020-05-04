@@ -6,10 +6,9 @@ using System.Web.Mvc;
 using WebApplication.Models;
 using WebApplication.ServiceLayer;
 
-namespace WebApplication.Controllers
-{
-    public class CustomerController : Controller
-    {
+namespace WebApplication.Controllers {
+
+    public class CustomerController : Controller {
         // GET: Customer
         //public ActionResult Index()
         //{
@@ -23,22 +22,25 @@ namespace WebApplication.Controllers
         //}
 
         // GET: Customer/Create
-        public ActionResult Create()
-        {
+        public ActionResult Create() {
             return View();
         }
 
-
         [HttpPost]
-        public ActionResult Create(Customer personFromBrowser)
-        {
-
+        public ActionResult Create(Customer personFromBrowser) {
             CustomerService cs = new CustomerService();
-            cs.AddCustomer(personFromBrowser);
+
+            //if (!(cs.AddCustomer(personFromBrowser))) {
+            //    ViewBag.Message = "Emailen er allerede i brug, prøv igen!";
+            //}
+
+            try {
+                cs.AddCustomer(personFromBrowser);
+            } catch (Exception) {
+                ViewBag.Message = "Emailen er allerede i brug, prøv igen!";
+            }
 
             return View("CustomerCreated");
         }
-
-
     }
 }
