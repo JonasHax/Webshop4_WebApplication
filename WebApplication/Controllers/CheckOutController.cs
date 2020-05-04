@@ -23,9 +23,20 @@ namespace WebApplication.Controllers {
             // få fat i kunden
             CustomerServiceReference.Customer customer = (CustomerServiceReference.Customer)Session["LoggedInUser"];
 
+            // tjek om der er noget i kurv
+            if (ShoppingCart == null || ShoppingCart.Count == 0) {
+                return View("NoItemsInCart");
+            }
+
+            // tjek om der er nok af alle produkter på lager. Send en fejlbesked hvis ikke
+            foreach (var item in ShoppingCart) {
+                if (item.ProductVersion.Stock < item.amount) {
+                    return View("ItemNotInStock", item);
+                }
+            }
+
             if (customer != null) {
                 // opret ordre
-                // kunden bliver sat på hardcoded lige nu - skal senere findes fra session
                 OrderService.Order order = new OrderService.Order() {
                     CustomerId = customer.CustomerID,
                     Date = DateTime.Now,

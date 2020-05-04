@@ -5,8 +5,15 @@
 }
 
 @{
+    string fullname = "";
+    string fullAddress = "";
     decimal totalprice = 0;
     int numberOfItems = 0;
+}
+
+@if (!(Model == null)) {
+    totalprice = 0;
+    numberOfItems = 0;
     if (!(Model == null)) {
         foreach (var item in Model.Order.SalesLineItems) {
             totalprice += item.Product.Price * item.amount;
@@ -14,12 +21,14 @@
         }
     }
 
-    string fullname = Model.Customer.FirstName + " " + Model.Customer.LastName;
-    string fullAddress = Model.Customer.Street + " " + Model.Customer.HouseNo + ", " + Model.Customer.ZipCode;
+    fullname = Model.Customer.FirstName + " " + Model.Customer.LastName;
+    fullAddress = Model.Customer.Street + " " + Model.Customer.HouseNo + ", " + Model.Customer.ZipCode;
 }
 
 <img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
 
+@*<h2>Tak for din betaling</h2>*@
+@*@if (!(Model.Customer == null && Model.Order == null)) {*@
 @if (!(Model == null)) {
     <hr />
     <div>
@@ -165,10 +174,10 @@
         </table>
     </div>
 } else {
-    <h2 class="blacktext">
+    <h2 class="siteheadline">
         Fejl under betaling
     </h2>
-    <h3 class="blacktext">
+    <h3 style="color:white">
         @ViewBag.Message
     </h3>
 }

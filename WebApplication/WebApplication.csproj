@@ -357,6 +357,8 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\CheckOut\NoCustomerLoggedIn.cshtml" />
     <Content Include="Views\Shared\Mainmenu.cshtml" />
+    <Content Include="Views\CheckOut\ItemNotInStock.cshtml" />
+    <Content Include="Views\CheckOut\NoItemsInCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

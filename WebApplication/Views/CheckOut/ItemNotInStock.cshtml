@@ -1,0 +1,11 @@
+﻿@model WebApplication.OrderService.SalesLineItem
+
+@{
+    ViewBag.Title = "ItemNotInStock";
+}
+
+<img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
+
+<h2 class="siteheadline">En vare er ikke tilgængelig!</h2>
+
+<h4 style="color:white">Varen @Model.Product.Name er ikke på lager i det ønskede antal: @Model.amount</h4>
