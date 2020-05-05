@@ -9,26 +9,29 @@ namespace WebApplication.Tests {
     public class ServiceCheckoutTest {
         private readonly ServiceOrder testservice = new ServiceOrder();
 
-        //[TestMethod]
-        //public void TestGetOrder() {
-        //    Order test = testservice.GetOrder(2);
+        [TestMethod]
+        public void TestGetOrder()
+        {
+            Order test = testservice.GetOrder(1);
 
-        //    Assert.IsNotNull(test.CustomerId);
-        //    Assert.IsNotNull(test.OrderId);
-        //}
+            Assert.IsNotNull(test.CustomerId);
+            Assert.IsNotNull(test.OrderId);
+        }
 
-        //[TestMethod]
-        //public void TestCreateOrder() {
-        //    OrderService.Order order = new OrderService.Order {
-        //        CustomerId = 65,
-        //        Date = DateTime.Now,
-        //        Status = true
-        //    };
+        [TestMethod]
+        public void TestCreateOrder()
+        {
+            Order order = new OrderService.Order
+            {
+                CustomerId = 63,
+                Date = DateTime.Now,
+                Status = true
+            };
 
-        //    int id = testservice.AddOrder(order);
-        //    order.OrderId = id;
+            int id = testservice.AddOrder(order);
+            order.OrderId = id;
 
-        //    Assert.IsTrue(testservice.AddOrder(order) > 0);
-        //}
+            Assert.IsTrue(testservice.AddOrder(order) > 0);
+        }
     }
 }
