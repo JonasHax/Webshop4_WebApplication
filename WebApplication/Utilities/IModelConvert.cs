@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WebApplication.Models;
 
-
 namespace WebApplication.Utilities {
 
     public interface IModelConvert {

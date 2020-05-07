@@ -28,5 +28,10 @@ namespace WebApplication.ServiceLayer {
 
             return product;
         }
+
+        public int GetStock(int styleNumber, string sizeCode, string colorCode) {
+            ProductServiceClient proxy = new ProductServiceClient();
+            return proxy.GetStock(styleNumber, sizeCode, colorCode);
+        }
     }
 }

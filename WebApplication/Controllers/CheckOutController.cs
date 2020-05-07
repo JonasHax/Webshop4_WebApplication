@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication.Models;
 using WebApplication.OrderService;
+using WebApplication.ProductService;
 using WebApplication.ServiceLayer;
 using WebApplication.Utilities;
 
@@ -29,9 +30,15 @@ namespace WebApplication.Controllers {
             }
 
             // tjek om der er nok af alle produkter på lager. Send en fejlbesked hvis ikke
+            ProductServiceClient productService = new ProductServiceClient();
             foreach (var item in ShoppingCart) {
-                if (item.ProductVersion.Stock < item.amount) {
-                    return View("ItemNotInStock", item);
+                int stock = productService.GetStock(item.Product.StyleNumber, item.ProductVersion.SizeCode, item.ProductVersion.ColorCode);
+                if (stock < item.amount) {
+                    ViewModelProductStock model = new ViewModelProductStock() {
+                        SalesLineItem = item,
+                        Stock = stock
+                    };
+                    return View("ItemNotInStock", model);
                 }
             }
 

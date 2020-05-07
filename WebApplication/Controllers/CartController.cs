@@ -82,7 +82,14 @@ namespace WebApplication.Controllers {
         // Sletter produkter fra kurven
         public ActionResult Delete(int id) {
             ShoppingCart = (List<SalesLineItem>)Session["ShoppingCart"];
-            ShoppingCart.RemoveAt(id);
+
+            if (ShoppingCart.ElementAt(id).amount > 1) {
+                ShoppingCart.ElementAt(id).amount--;
+                ShoppingCart.ElementAt(id).Price = (ShoppingCart.ElementAt(id).amount * ShoppingCart.ElementAt(id).Product.Price); // opdater pris på sli
+            } else {
+                ShoppingCart.RemoveAt(id);
+            }
+
             Session["ShoppingCart"] = ShoppingCart;
 
             return RedirectToAction("Index", "Cart");

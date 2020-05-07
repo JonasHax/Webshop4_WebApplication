@@ -4,8 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-@using (Html.BeginForm("Index", "Cart", Model))
-{
+@using (Html.BeginForm("Index", "Cart", Model)) {
 
     <img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
     <div class="sitebg">
@@ -15,11 +14,9 @@
         </div>
         <hr />
 
-
         <dl class="dl-horizontal">
             <dt>
                 Varenummer:
-
             </dt>
 
             <dd>
@@ -53,13 +50,11 @@
             <dt>
                 Tilgængelige farver:
             </dt>
-         
 
             <dd>
-                <select id="colors" name="colors" onclick="clearAlert()">
+                <select id="colors" name="colors" onclick="clearAlert()" @*onchange="UpdateSizes()*@>
                     <option value="default">Vælg en farve</option>
-                    @foreach (var item in Model.GetAvailableColors())
-                    {
+                    @foreach (var item in Model.GetAvailableColors()) {
                         <option value="@item">@item</option>
                     }
                 </select>
@@ -94,11 +89,6 @@
                            min="1" max="100" step="1" value="1">
                 </label>
             </dd>
-
-
-         
-
-
         </dl>
     </div>
 
@@ -106,7 +96,6 @@
         <div class="row">
             <div class="col-sm-2">
                 <button type="submit" class="btn btn-primary">Tilføj til kurv  </button>
-
             </div>
 
             <div class="col-sm-2">
@@ -114,10 +103,9 @@
             </div>
         </div>
 
-        <h3 id="AlertMessage" style="color:red">   @ViewBag.Message  </h3>
+        <h3 id="AlertMessage" style="color:red">@ViewBag.Message</h3>
     </div>
 }
-
 
 <script>
 
@@ -125,7 +113,23 @@
 
         document.getElementById("AlertMessage").innerHTML = "";
     }
-
-
 </script>
 
+@*<script type="text/javascript">
+
+    function UpdateSizes() {
+        color = document.getElementById('colors').value;
+        alert(color);
+
+        @Model.GetSizesAvailableInSpecificColor(color);
+    }
+
+    function createOption(value) {
+        el = document.createElement('option');
+        el.value = value;
+        el.innerHTML = value;
+        el.id = value;
+
+        document.getElementById('sizes').appendChild(el);
+    }
+    </script>*@

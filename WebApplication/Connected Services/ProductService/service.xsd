@@ -169,4 +169,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetStock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="styleNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="sizeCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="colorCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStockResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

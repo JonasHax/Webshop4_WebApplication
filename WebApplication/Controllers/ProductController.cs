@@ -38,7 +38,7 @@ namespace WebApplication.Controllers {
             if (id != null && id > -1) {
                 ServiceProduct service = new ServiceProduct();
                 CompanyProduct product = service.GetProductById((int)id);
-                ViewBag.Message = "Den valgte vare er ikke på lager";
+                ViewBag.Message = "Den valgte kombination af farve og størrelse er ikke på lager";
                 return View("Details", product);
             } else {
                 return RedirectToAction("List");

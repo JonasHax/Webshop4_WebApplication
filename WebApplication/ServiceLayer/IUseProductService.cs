@@ -12,5 +12,7 @@ namespace WebApplication.ServiceLayer {
         CompanyProduct GetProductById(int id);
 
         List<CompanyProduct> GetAllProducts();
+
+        int GetStock(int styleNumber, string sizeCode, string colorCode);
     }
 }

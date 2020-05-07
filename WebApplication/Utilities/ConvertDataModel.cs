@@ -6,7 +6,6 @@ using WebApplication.Models;
 using WebApplication.ProductService;
 using Serviceproxy = WebApplication.CustomerServiceReference;
 
-
 namespace WebApplication.Utilities {
 
     public class ConvertDataModel : IModelConvert {
@@ -47,14 +46,16 @@ namespace WebApplication.Utilities {
                     State = productToConvert.State,
                     StyleNumber = productToConvert.StyleNumber
                 };
-                foreach (var prodVer in productToConvert.ProductVersions) {
-                    CompanyProductVersion convertedProdVer = new CompanyProductVersion() {
-                        ColorCode = prodVer.ColorCode,
-                        SizeCode = prodVer.SizeCode,
-                        Stock = prodVer.Stock,
-                        Product = convertedProduct
-                    };
-                    convertedProduct.ProductVersions.Add(convertedProdVer);
+                if (productToConvert.ProductVersions.ToList().Count > 0) {
+                    foreach (var prodVer in productToConvert.ProductVersions) {
+                        CompanyProductVersion convertedProdVer = new CompanyProductVersion() {
+                            ColorCode = prodVer.ColorCode,
+                            SizeCode = prodVer.SizeCode,
+                            Stock = prodVer.Stock,
+                            Product = convertedProduct
+                        };
+                        convertedProduct.ProductVersions.Add(convertedProdVer);
+                    }
                 }
             }
             return convertedProduct;
@@ -62,7 +63,7 @@ namespace WebApplication.Utilities {
 
         public List<CompanyProduct> ConvertFromServiceProductAllProducts(List<Product> listToConvert) {
             List<CompanyProduct> convertedList = new List<CompanyProduct>();
-                                             
+
             foreach (ProductService.Product product in listToConvert) {
                 CompanyProduct convertedProd = ConvertFromServiceProduct(product);
                 convertedList.Add(convertedProd);
@@ -71,13 +72,10 @@ namespace WebApplication.Utilities {
             return convertedList;
         }
 
-        public Serviceproxy.Customer ConvertToServiceCutsomer(Customer clientModelCustomer)
-        {
+        public Serviceproxy.Customer ConvertToServiceCutsomer(Customer clientModelCustomer) {
             Serviceproxy.Customer foundProxyCustomer = null;
-            if (clientModelCustomer != null)
-            {
-                foundProxyCustomer = new Serviceproxy.Customer
-                {
+            if (clientModelCustomer != null) {
+                foundProxyCustomer = new Serviceproxy.Customer {
                     FirstName = clientModelCustomer.FirstName,
                     LastName = clientModelCustomer.LastName,
                     Street = clientModelCustomer.Street,
@@ -90,6 +88,5 @@ namespace WebApplication.Utilities {
             }
             return foundProxyCustomer;
         }
-
     }
 }

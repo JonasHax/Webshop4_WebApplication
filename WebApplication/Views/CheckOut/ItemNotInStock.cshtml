@@ -1,4 +1,4 @@
-﻿@model WebApplication.OrderService.SalesLineItem
+﻿@model WebApplication.Models.ViewModelProductStock
 
 @{
     ViewBag.Title = "ItemNotInStock";
@@ -7,5 +7,8 @@
 <img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
 
 <h2 class="siteheadline">En vare er ikke tilgængelig!</h2>
-
-<h4 style="color:white">Varen @Model.Product.Name er ikke på lager i det ønskede antal: @Model.amount</h4>
+<br />
+<h4 style="color:white">Varen @Model.SalesLineItem.Product.Name er ikke på lager i det ønskede antal: @Model.SalesLineItem.amount</h4>
+<h4 style="color:white">Der findes lige nu @Model.Stock på lager af produktet.</h4>
+<br />
+<h5 style="color:white">Vend tilbage til kurven for at rette antal eller fjerne produktet fra kurven.</h5>

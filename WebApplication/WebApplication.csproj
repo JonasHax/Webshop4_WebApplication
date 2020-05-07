@@ -194,6 +194,7 @@
     <Compile Include="Models\CompanyProduct.cs" />
     <Compile Include="Models\CompanyProductVersion.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\ViewModelProductStock.cs" />
     <Compile Include="Models\ViewModelReciept.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLayer\IUseCustomerService.cs" />

@@ -306,6 +306,12 @@ namespace WebApplication.ProductService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/UpdateProduct", ReplyAction="http://tempuri.org/IProductService/UpdateProductResponse")]
         System.Threading.Tasks.Task<bool> UpdateProductAsync(WebApplication.ProductService.Product productToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetStock", ReplyAction="http://tempuri.org/IProductService/GetStockResponse")]
+        int GetStock(int styleNumber, string sizeCode, string colorCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProductService/GetStock", ReplyAction="http://tempuri.org/IProductService/GetStockResponse")]
+        System.Threading.Tasks.Task<int> GetStockAsync(int styleNumber, string sizeCode, string colorCode);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -429,6 +435,14 @@ namespace WebApplication.ProductService {
         
         public System.Threading.Tasks.Task<bool> UpdateProductAsync(WebApplication.ProductService.Product productToUpdate) {
             return base.Channel.UpdateProductAsync(productToUpdate);
+        }
+        
+        public int GetStock(int styleNumber, string sizeCode, string colorCode) {
+            return base.Channel.GetStock(styleNumber, sizeCode, colorCode);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetStockAsync(int styleNumber, string sizeCode, string colorCode) {
+            return base.Channel.GetStockAsync(styleNumber, sizeCode, colorCode);
         }
     }
 }
