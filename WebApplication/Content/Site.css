@@ -93,5 +93,11 @@ textarea {
     100% {
         opacity: 1;
     }
-} 
+}
+
+.loginname {
+    float: right;
+    margin-top: 16px;
+    color: #9d9d9d;
+}
 

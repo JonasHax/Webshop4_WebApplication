@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
+@using WebApplication.Controllers
 <html>
 <head>
     <link rel="icon" href="https://i.imgur.com/in8q3fb.png">
@@ -7,6 +10,20 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @{ 
+        string fullname = "";
+        WebApplication.CustomerServiceReference.Customer customer = (WebApplication.CustomerServiceReference.Customer)Session["LoggedInUser"];
+        if(customer != null)
+        {
+            fullname = "Hello, " + customer.FirstName + " " + customer.LastName + "!";
+        }
+        else
+        {
+            fullname = "Du er ikke logget ind!";
+        }
+
+
+    }
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -21,20 +38,24 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                  
+
                     <li>@Html.ActionLink("Produkter", "List", "Product")</li>
                     <li>@Html.ActionLink("Kurv", "Index", "Cart")</li>
                     <li>@Html.ActionLink("Opret Bruger", "create", "Customer")</li>
                     <li>@Html.ActionLink("Login", "index", "Login")</li>
+
                 </ul>
+                <h4 class="loginname">
+                  @fullname
+                </h4>
             </div>
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
-      
+
         <footer>
-            <p style="color: #070a0c" >&copy; @DateTime.Now.Year - Gruppe 4 semesterprojekt</p>
+            <p style="color: #070a0c">&copy; @DateTime.Now.Year - Gruppe 4 semesterprojekt</p>
         </footer>
     </div>
 

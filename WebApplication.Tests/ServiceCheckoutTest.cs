@@ -12,7 +12,7 @@ namespace WebApplication.Tests {
         [TestMethod]
         public void TestGetOrder()
         {
-            Order test = testservice.GetOrder(1);
+            Order test = testservice.GetOrder(5);
 
             Assert.IsNotNull(test.CustomerId);
             Assert.IsNotNull(test.OrderId);
