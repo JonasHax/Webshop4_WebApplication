@@ -10,8 +10,7 @@ namespace WebApplication.Tests {
         private readonly ServiceOrder testservice = new ServiceOrder();
 
         [TestMethod]
-        public void TestGetOrder()
-        {
+        public void TestGetOrder() {
             Order test = testservice.GetOrder(5);
 
             Assert.IsNotNull(test.CustomerId);
@@ -19,10 +18,8 @@ namespace WebApplication.Tests {
         }
 
         [TestMethod]
-        public void TestCreateOrder()
-        {
-            Order order = new OrderService.Order
-            {
+        public void TestCreateOrder() {
+            Order order = new OrderService.Order {
                 CustomerId = 63,
                 Date = DateTime.Now,
                 Status = true
