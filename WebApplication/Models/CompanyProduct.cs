@@ -5,31 +5,22 @@ using System.Runtime.Serialization;
 using System.Web;
 
 namespace WebApplication.Models {
-    [DataContract]
+
     public class CompanyProduct {
-        [DataMember]
         public int StyleNumber { get; set; }
 
-        [DataMember]
         public string Name { get; set; }
 
-        [DataMember]
         public string Description { get; set; }
 
-        [DataMember]
         public Boolean State { get; set; }
 
-        [DataMember]
         public decimal Price { get; set; }
 
-       
-
-        [DataMember]
         public List<CompanyProductVersion> ProductVersions { get; set; }
 
         public CompanyProduct() {
             ProductVersions = new List<CompanyProductVersion>();
-         
         }
 
         public override string ToString() {
@@ -77,7 +68,5 @@ namespace WebApplication.Models {
 
             return prodVer;
         }
-
-    
     }
 }
