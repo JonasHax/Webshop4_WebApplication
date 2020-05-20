@@ -1,6 +1,4 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 @using WebApplication.Controllers
 <html>
 <head>
@@ -10,18 +8,14 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @{ 
+    @{
         string fullname = "";
         WebApplication.CustomerServiceReference.Customer customer = (WebApplication.CustomerServiceReference.Customer)Session["LoggedInUser"];
-        if(customer != null)
-        {
+        if (customer != null) {
             fullname = "Hello, " + customer.FirstName + " " + customer.LastName + "!";
-        }
-        else
-        {
+        } else {
             fullname = "Du er ikke logget ind!";
         }
-
 
     }
 </head>
@@ -43,10 +37,9 @@
                     <li>@Html.ActionLink("Kurv", "Index", "Cart")</li>
                     <li>@Html.ActionLink("Opret Bruger", "create", "Customer")</li>
                     <li>@Html.ActionLink("Login", "index", "Login")</li>
-
                 </ul>
                 <h4 class="loginname">
-                  @fullname
+                    @fullname
                 </h4>
             </div>
         </div>

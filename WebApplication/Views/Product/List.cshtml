@@ -9,15 +9,13 @@
     ViewBag.Title = "List";
 }
 
-<img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage" >
-
+<img src="https://i.imgur.com/TWSTK8s.png" alt="Product Image" class="headimage">
 
 <body>
-   
+
     <div class="container py-5">
         <div class="row text-center text-white mb-5">
             <div class="col-lg-7 mx-auto">
-             
             </div>
         </div>
         <div class="row justify-content-center">
@@ -26,39 +24,33 @@
                 <!-- List group-->
                 <ul class="list-group shadow">
                     <!-- list group item-->
-                    @foreach (var item in Model)
-                    {
-                     
+                    @foreach (var item in Model) {
 
-                    <li class="list-group-item" style="background-color: #ecf0f1;" >
-                        <img src="https://i.imgur.com/SQLRuDf.jpg" alt="Product Image" class="productpic">
-                        <!-- Custom content-->
-                        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
-                            <div class="media-body order-2 order-lg-1">
-                                <h2 class="mt-0 font-weight-bold mb-2 producttext">
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </h2>
-                                <p class="font-italic text-muted mb-0 small">
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </p>
-                                <div class="d-flex align-items-center justify-content-between mt-1">
-                                    <h5 class="font-weight-bold my-2">
-                                        @Html.DisplayFor(modelItem => item.Price),-
-                                    </h5>
+                        <li class="list-group-item" style="background-color: #ecf0f1;">
+                            <img src="https://i.imgur.com/SQLRuDf.jpg" alt="Product Image" class="productpic">
+                            <!-- Custom content-->
+                            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                                <div class="media-body order-2 order-lg-1">
+                                    <h2 class="mt-0 font-weight-bold mb-2 producttext">
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </h2>
+                                    <p class="font-italic text-muted mb-0 small">
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-between mt-1">
+                                        <h5 class="font-weight-bold my-2">
+                                            @Html.DisplayFor(modelItem => item.Price),-
+                                        </h5>
 
-                                    @using (Html.BeginForm("Details", "Product", new { id = item.StyleNumber }))
-                                    {
-                                        <button type="submit" class="btn btn-lg btn btn-primary buybutt">Se Produkt</button>
-                                    }
-                  
+                                        @using (Html.BeginForm("Details", "Product", new { id = item.StyleNumber })) {
+                                            <button type="submit" class="btn btn-lg btn btn-primary buybutt">Se Produkt</button>
+                                        }
+                                    </div>
                                 </div>
                             </div>
-                        </div> <!-- End -->
-                    </li>
-                        <!-- End -->
-                        <!-- list group item-->
+                        </li>
                     }
-                </ul> <!-- End -->
+                </ul>
             </div>
         </div>
     </div>

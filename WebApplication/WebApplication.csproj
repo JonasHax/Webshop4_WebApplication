@@ -350,7 +350,6 @@
     <Content Include="Views\Login\LoginSuccess.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
     <Content Include="Views\Customer\CustomerCreated.cshtml" />
-    <Content Include="Views\Cart\Test.cshtml" />
     <Content Include="Views\Cart\Delete.cshtml" />
     <Content Include="Views\Cart\Empty.cshtml" />
     <Content Include="Views\CheckOut\Index.cshtml" />

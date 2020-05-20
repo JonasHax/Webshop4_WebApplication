@@ -11,7 +11,6 @@ namespace WebApplication.Controllers {
 
     public class ProductController : Controller {
 
-        // GET: Product
         public ActionResult Index() {
             ServiceProduct service = new ServiceProduct();
             CompanyProduct model = service.GetProductById(3);

@@ -108,28 +108,8 @@
 }
 
 <script>
-
     function clearAlert() {
 
         document.getElementById("AlertMessage").innerHTML = "";
     }
 </script>
-
-@*<script type="text/javascript">
-
-    function UpdateSizes() {
-        color = document.getElementById('colors').value;
-        alert(color);
-
-        @Model.GetSizesAvailableInSpecificColor(color);
-    }
-
-    function createOption(value) {
-        el = document.createElement('option');
-        el.value = value;
-        el.innerHTML = value;
-        el.id = value;
-
-        document.getElementById('sizes').appendChild(el);
-    }
-    </script>*@
