@@ -56,7 +56,7 @@ namespace WebApplication.Tests {
             CompanyProduct product = testservice.GetProductById(3);
 
             //Act
-            List<string> sizes = product.GetSizesAvailableInSpecificColor("blue");
+            List<string> sizes = product.GetSizesAvailableInSpecificColor("Blue");
 
             //Assert
             Assert.IsTrue(sizes.Count > 0);
@@ -68,7 +68,7 @@ namespace WebApplication.Tests {
             CompanyProduct product = testservice.GetProductById(3);
 
             //Act
-            CompanyProductVersion prodver = product.GetProductVersion("m", "blue");
+            CompanyProductVersion prodver = product.GetProductVersion("m", "Blue");
 
             //Assert
             Assert.IsTrue(prodver != null);
