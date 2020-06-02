@@ -476,6 +476,18 @@ namespace WebApplication.OrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
         System.Threading.Tasks.Task<WebApplication.OrderService.Order> GetOrderAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetAllOrders", ReplyAction="http://tempuri.org/IOrderService/GetAllOrdersResponse")]
+        WebApplication.OrderService.Order[] GetAllOrders();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetAllOrders", ReplyAction="http://tempuri.org/IOrderService/GetAllOrdersResponse")]
+        System.Threading.Tasks.Task<WebApplication.OrderService.Order[]> GetAllOrdersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetSalesLineItemsFromOrderID", ReplyAction="http://tempuri.org/IOrderService/GetSalesLineItemsFromOrderIDResponse")]
+        WebApplication.OrderService.SalesLineItem[] GetSalesLineItemsFromOrderID(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetSalesLineItemsFromOrderID", ReplyAction="http://tempuri.org/IOrderService/GetSalesLineItemsFromOrderIDResponse")]
+        System.Threading.Tasks.Task<WebApplication.OrderService.SalesLineItem[]> GetSalesLineItemsFromOrderIDAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -535,6 +547,22 @@ namespace WebApplication.OrderService {
         
         public System.Threading.Tasks.Task<WebApplication.OrderService.Order> GetOrderAsync(int id) {
             return base.Channel.GetOrderAsync(id);
+        }
+        
+        public WebApplication.OrderService.Order[] GetAllOrders() {
+            return base.Channel.GetAllOrders();
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.OrderService.Order[]> GetAllOrdersAsync() {
+            return base.Channel.GetAllOrdersAsync();
+        }
+        
+        public WebApplication.OrderService.SalesLineItem[] GetSalesLineItemsFromOrderID(int id) {
+            return base.Channel.GetSalesLineItemsFromOrderID(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebApplication.OrderService.SalesLineItem[]> GetSalesLineItemsFromOrderIDAsync(int id) {
+            return base.Channel.GetSalesLineItemsFromOrderIDAsync(id);
         }
     }
 }

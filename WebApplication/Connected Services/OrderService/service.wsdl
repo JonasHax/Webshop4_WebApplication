@@ -31,6 +31,18 @@
   <wsdl:message name="IOrderService_GetOrder_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="IOrderService_GetAllOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrders" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetAllOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetSalesLineItemsFromOrderID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesLineItemsFromOrderID" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetSalesLineItemsFromOrderID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalesLineItemsFromOrderIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IOrderService">
     <wsdl:operation name="AddOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/AddOrder" message="tns:IOrderService_AddOrder_InputMessage" />
@@ -47,6 +59,14 @@
     <wsdl:operation name="GetOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/GetOrder" message="tns:IOrderService_GetOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetOrderResponse" message="tns:IOrderService_GetOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/GetAllOrders" message="tns:IOrderService_GetAllOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetAllOrdersResponse" message="tns:IOrderService_GetAllOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesLineItemsFromOrderID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/GetSalesLineItemsFromOrderID" message="tns:IOrderService_GetSalesLineItemsFromOrderID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetSalesLineItemsFromOrderIDResponse" message="tns:IOrderService_GetSalesLineItemsFromOrderID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrderService" type="tns:IOrderService">
@@ -80,6 +100,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrder">
       <soap:operation soapAction="http://tempuri.org/IOrderService/GetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalesLineItemsFromOrderID">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/GetSalesLineItemsFromOrderID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

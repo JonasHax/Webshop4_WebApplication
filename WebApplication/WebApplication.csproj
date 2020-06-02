@@ -233,6 +233,9 @@
     <Content Include="Connected Services\OrderService\WebApplication.OrderService.Order.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\OrderService\WebApplication.OrderService.SalesLineItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ProductService\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
